@@ -1,6 +1,19 @@
-from flask import Flask, app, render_template
+from logging import debug, error
+from sqlite3.dbapi2 import Cursor
+from flask import Flask, render_template, request, flash,session,redirect
+import os
+from flask import *
+from flask.scaffold import _matching_loader_thinks_module_is_package
+import sqlite3
+from sqlite3 import Error
+
+from markupsafe import escape 
+import hashlib
+from werkzeug.exceptions import UnsupportedMediaType
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app=Flask(__name__)
+ruta_db="database.db"
 
 num_sillas=90
 lista_usuarios={
@@ -19,12 +32,53 @@ Lista_peliculas={
 def inicio():
     return render_template("Cartelera.html")
 
-@app.route("/registro", methods=["GET", "POST"])
+@app.route("/registro",methods=['GET', 'POST'])
 def registro():
+    if request.method=="POST":
+        documento=escape(request.form["documento"])
+        correo=escape(request.form["correo"])
+        nombre=escape(request.form["nombres"])
+        apellidos=escape(request.form["apellidos"])
+        clave=escape(request.form["clave"])
+
+       
+        hash=generate_password_hash(clave)
+        try:
+            with sqlite3.connect(ruta_db) as con:
+                cur= con.cursor()
+                cur.execute(" INSERT INTO usuarios(nombre, apellidos, numeroDocumento, correo, clave) VALUES (?,?,?,?,?)", (nombre,apellidos,documento,correo,hash))
+                con.commit()
+                return redirect("/")
+        except  Error:
+            print(Error)
+
     return render_template("Registro-de-Usuario.html")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    if request.method=="POST":
+        usuario=escape(request.form["correo"])
+        password=escape(request.form["clave"])
+        try:
+            with sqlite3.connect(ruta_db) as con: 
+                cur=con.cursor()
+                cur.execute("SELECT clave FROM usuarios WHERE correo=?",[usuario])
+                row = cur.fetchone()
+                if row is None:
+                    return "Usuario no se encuentra en la base de datos"
+                    
+                else:
+                    if check_password_hash(row[0],password):
+                        session["usuario"]=usuario
+                        return redirect("/cartelera")
+                    else:
+                        return "Clave incorrecta"
+        except Error:
+            print(Error)
+    return "Error en el metodo"
+
+@app.route("/IniciarSesion")
+def iniciarSesion():
     return render_template("Iniciar-Sesion.html")
 
 @app.route("/perfil")
@@ -43,7 +97,7 @@ def perfil(id_usuario):
 def dashboard():
     return render_template("Dashboard.html")
 
-@app.route("/cartelera", methods=["GET", "POST"])
+@app.route("/cartelera", methods=["GET"])
 def cartelera():
     return render_template("Cartelera.html")
 
