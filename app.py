@@ -31,19 +31,61 @@ app.secret_key=os.urandom(24)
 
 @app.route("/", methods=["GET","POST"])
 def inicio():
-    return render_template(ruta_inicio)
+    if "usuario" in session:
+        try:
+            with sqlite3.connect(ruta_db) as con: 
+                cur=con.cursor()
+                cur.execute("SELECT rol FROM usuarios WHERE correo=?",[session["usuario"]])
+                row = cur.fetchone()
+                rol=row[0]
+                return render_template(ruta_inicio,rol=rol)
+        except Error:
+            print(Error)
+    return render_template(ruta_inicio,rol=0)
+
+
 
 @app.route("/cartelera")
 def cartelera():
-    return render_template(ruta_cartelera)
+    if "usuario" in session:
+        try:
+            with sqlite3.connect(ruta_db) as con: 
+                cur=con.cursor()
+                cur.execute("SELECT rol FROM usuarios WHERE correo=?",[session["usuario"]])
+                row = cur.fetchone()
+                rol=row[0]
+                return render_template(ruta_cartelera,rol=rol)
+        except Error:
+            print(Error)
+    return render_template(ruta_cartelera,rol=0)
 
 @app.route("/detalle", methods=["GET","POST"])
 def detalles():
-    return render_template(ruta_detalle)
+    if "usuario" in session:
+        try:
+            with sqlite3.connect(ruta_db) as con: 
+                cur=con.cursor()
+                cur.execute("SELECT rol FROM usuarios WHERE correo=?",[session["usuario"]])
+                row = cur.fetchone()
+                rol=row[0]
+                return render_template(ruta_detalle,rol=rol)
+        except Error:
+            print(Error)
+    return render_template(ruta_detalle,rol=0)
 
 @app.route("/buscar", methods=["GET","POST"])
 def buscar():
-    return render_template(ruta_buscar)
+    if "usuario" in session:
+        try:
+            with sqlite3.connect(ruta_db) as con: 
+                cur=con.cursor()
+                cur.execute("SELECT rol FROM usuarios WHERE correo=?",[session["usuario"]])
+                row = cur.fetchone()
+                rol=row[0]
+                return render_template(ruta_buscar,rol=rol)
+        except Error:
+            print(Error)
+    return render_template(ruta_buscar,rol=0)
 
 @app.route("/login", methods=["GET","POST"])
 def login():
@@ -60,12 +102,21 @@ def login():
                     else:
                         if check_password_hash(row[0],clave):
                             session["usuario"]=correo
+                        
                             return redirect("/")
                         else:
                             return "Clave incorrecta"
         except Error:
             print(Error)
     return render_template(ruta_login)
+
+@app.route("/logout")
+def logout():
+    if "usuario" in session:
+        session.pop("usuario",None)
+        return render_template(ruta_inicio,rol=0)
+    else:
+        return "No hay sesion activa"
 
 @app.route("/registro", methods=["GET","POST"])
 def registro():
@@ -101,7 +152,26 @@ def registro():
 
 @app.route("/perfil", methods=["GET","POST"])
 def perfil():
-    return render_template(ruta_perfil)
+    if "usuario" in session:
+        return render_template(ruta_perfil)
+    return "Debe iniciar sesion"
+
+@app.route("/dashboard")
+def dashboard():
+    if ("usuario" in session):
+        try:
+            with sqlite3.connect(ruta_db) as con: 
+                cur=con.cursor()
+                cur.execute("SELECT rol FROM usuarios WHERE correo=?",[session["usuario"]])
+                row = cur.fetchone()
+                rol=row[0]
+                if rol=="usuario_final":
+                    return "No tiene los permisos para esta acción"
+                return render_template(ruta_dashboard,rol=rol)
+        except Error:
+            print(Error)
+    return "Debe iniciar sesion"
+
 
 if __name__=="__main__":
     app.run(debug=True, port=8000)

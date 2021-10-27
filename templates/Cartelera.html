@@ -22,8 +22,15 @@
                     <li class="nav-item"><a class="nav-link nav-link" href="/">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link active" href="/cartelera">Cartelera</a></li>
                     <li class="nav-item"><a class="nav-link" href="/buscar">Buscar</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/perfil">Administrar</a></li>
-                </ul><span class="navbar-text actions"> <a class="login" href="/login">Iniciar Sesión</a><a class="btn btn-light action-button" role="button" href="/registro">Registrarse</a></span>
+                    {% if rol == "administrador" or rol=="superadministrador" %}
+                        <li class="nav-item"><a class="nav-link" href="/perfil">Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/dashboard">Administrar</a></li>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link" href="/perfil">Perfil</a></li>
+                    {% endif %}
+                {% if rol ==0 %}
+                    </ul><span class="navbar-text actions"> <a class="login" href="/login">Iniciar Sesión</a><a class="btn btn-light action-button" role="button" href="/registro">Registrarse</a></span>               
+                {% endif %}
             </div>
         </div>
     </nav>

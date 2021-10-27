@@ -5,13 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Cinema</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/ionicons.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
-    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
-    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Login-Form-Dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Navigation-with-Button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
 <body>
@@ -19,11 +19,15 @@
         <div class="container"><a class="navbar-brand" href="index.html"><strong>GPB - Cinemark</strong><br></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse text-truncate" id="navcol-1">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link nav-link" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Cartelera.html">Cartelera</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Buscar.html">Buscar</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/perfil">Administrar</a></li>
-                </ul><span class="navbar-text actions"> <a class="login" href="Iniciar-Sesión.html">Iniciar Sesión</a><a class="btn btn-light action-button" role="button" href="Registro.html">Registrarse</a></span>
+                    <li class="nav-item"><a class="nav-link nav-link" href="/">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/cartelera">Cartelera</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/buscar">Buscar</a></li>
+                    {% if rol == "administrador" or rol=="superadministrador" %}
+                        <li class="nav-item"><a class="nav-link" href="/perfil">Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/dashboard">Administrar</a></li>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link" href="/perfil">Perfil</a></li>
+                    {% endif %}
             </div>
         </div>
     </nav>
@@ -192,10 +196,10 @@
         </ul>
         <p class="copyright">Mintic Grupo 6-26&nbsp;© 2021</p>
     </footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
-    <script src="assets/js/Simple-Slider.js"></script>
+    <script src="{{ url_for('static', filename='js/Simple-Slider.js') }}"></script>
 </body>
 
 </html>

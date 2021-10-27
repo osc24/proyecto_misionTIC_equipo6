@@ -22,11 +22,16 @@
                     <li class="nav-item"><a class="nav-link nav-link" href="/">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="/cartelera">Cartelera</a></li>
                     <li class="nav-item"><a class="nav-link" href="/buscar">Buscar</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/perfil">Administrar</a></li>
-                </ul><span class="navbar-text actions"> <a class="login" href="/login">Iniciar Sesión</a><a class="btn btn-light action-button" role="button" href="/registro">Registrarse</a></span>
+                    {% if rol == "administrador" or rol=="superadministrador" %}
+                        <li class="nav-item"><a class="nav-link" href="/perfil">Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/dashboard">Administrar</a></li>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link" href="/perfil">Perfil</a></li>
+                    {% endif %}
             </div>
         </div>
     </nav>
+    
     <div class="container">
         <div class="row text-start">
             <div class="col-md-4 text-center" style="background: var(--bs-indigo);border-radius: 15px;border: 1px solid var(--bs-table-striped-color);"><img class="rounded-circle" style="height: 200px;width: auto;min-height: 200px;max-height: auto;background: var(--bs-gray-600);border-radius: 15px;border: 1px none var(--bs-indigo);margin-top: 10px;" src="{{ url_for('static', filename='img/usuario.png') }}">
