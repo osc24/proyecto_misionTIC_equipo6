@@ -25,6 +25,7 @@ ruta_db="database.db"
 ##
 
 
+
 app=Flask(__name__)
 app.secret_key=os.urandom(24)
 
@@ -46,10 +47,56 @@ def buscar():
 
 @app.route("/login", methods=["GET","POST"])
 def login():
+    if request.method=="POST":
+        correo=escape(request.form["correo"])
+        clave=escape(request.form["clave"])
+        try:
+                with sqlite3.connect(ruta_db) as con: 
+                    cur=con.cursor()
+                    cur.execute("SELECT clave FROM usuarios WHERE correo=?",[correo])
+                    row = cur.fetchone()
+                    if row is None:
+                        return "Usuario no se encuentra en la base de datos"
+                    else:
+                        if check_password_hash(row[0],clave):
+                            session["usuario"]=correo
+                            return redirect("/")
+                        else:
+                            return "Clave incorrecta"
+        except Error:
+            print(Error)
     return render_template(ruta_login)
 
 @app.route("/registro", methods=["GET","POST"])
 def registro():
+    if request.method=="POST":
+        nombre=escape(request.form["nombres"])
+        apellidos=escape(request.form["apellidos"])
+        documento=escape(request.form["documento"])
+        correo=escape(request.form["correo"])
+        clave=escape(request.form["clave"])
+
+        hash=generate_password_hash(clave)
+        try:
+            with sqlite3.connect(ruta_db) as con: 
+                cur=con.cursor()
+                cur.execute("SELECT correo FROM usuarios WHERE correo=?",[correo])
+                row = cur.fetchone()
+                if row is None:
+                    try:
+                        with sqlite3.connect(ruta_db) as con:
+                            rol="usuario_final"
+                            cur= con.cursor()
+                            cur.execute(" INSERT INTO usuarios(nombre, apellidos, documento, correo, clave,rol) VALUES (?,?,?,?,?,?)", (nombre,apellidos,documento,correo,hash,rol))
+                            con.commit()
+                            return redirect("/login")
+                    except  Error:
+                        print(Error)
+                else:
+                    return "Usuario ya registrado"
+        except Error:
+            print(Error)
+        
     return render_template(ruta_registro)
 
 @app.route("/perfil", methods=["GET","POST"])
