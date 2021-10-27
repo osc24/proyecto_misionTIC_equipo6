@@ -1,351 +1,160 @@
 <!DOCTYPE html>
-<html style="font-size: 16px;">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="Sinopsis, Reparto, Genero, FUNCIONES">
-    <meta name="description" content="">
-    <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Cartelera</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/nicepage.css') }}" media="screen">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/Cartelera.css') }}" media="screen">
+<html lang="es">
 
-    <meta name="generator" content="Nicepage 3.27.1, nicepage.com">
-    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
-    
-    
-    
-    
-    
-    <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "",
-		"logo": "images/default-logo.png"
-}</script>
-    <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="Cartelera">
-    <meta property="og:type" content="website">
-  </head>
-  <body class="u-body"><header class="u-clearfix u-custom-color-1 u-header u-header" id="sec-7970"><div class="u-clearfix u-sheet u-sheet-1">
-        <a href="/cartelera" class="u-image u-logo u-image-1" data-image-width="80" data-image-height="40">
-          <img src="{{ url_for('static', filename='images/default-logo.png') }}" class="u-logo-image u-logo-image-1">
-        </a>
-        <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
-          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
-            <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
-              <svg><use xlink:href="#menu-hamburger"></use></svg>
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="menu-hamburger" viewBox="0 0 16 16" style="width: 16px; height: 16px;"><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
-</symbol>
-</defs></svg>
-            </a>
-          </div>
-        
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/cartelera" style="padding: 10px 20px;">Cartelera</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/buscar" style="padding: 10px 20px;">Buscar</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/IniciarSesion" style="padding: 10px 20px;">Iniciar Sesión</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/registro" style="padding: 10px 20px;">Registrarse</a>
-</li></ul>
-          </div>
-          <div class="u-custom-menu u-nav-container-collapse">
-            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-              <div class="u-inner-container-layout u-sidenav-overflow">
-                <div class="u-menu-close"></div>
-          
-</li></ul>
-</div>
-<li class="u-nav-item"><a class="u-button-style u-nav-link" href="/cartelera" style="padding: 10px 20px;">Cartelera</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/buscar" style="padding: 10px 20px;">Buscar</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/IniciarSesion" style="padding: 10px 20px;">Iniciar Sesión</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/registro" style="padding: 10px 20px;">Registrarse</a>
-</li></ul>
-              </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Cinema</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/ionicons.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Login-Form-Dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Navigation-with-Button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+        <div class="container"><a class="navbar-brand" href="/"><strong>GPB - Cinemark</strong><br></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse text-truncate" id="navcol-1">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link nav-link" href="/">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/cartelera">Cartelera</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/buscar">Buscar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/perfil">Administrar</a></li>
+                </ul><span class="navbar-text actions"> <a class="login" href="/login">Iniciar Sesión</a><a class="btn btn-light action-button" role="button" href="/registro">Registrarse</a></span>
             </div>
-            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
-          </div>
-        </nav>
-      </div></header>
-    <section class="u-align-center u-clearfix u-custom-color-1 u-section-1" id="sec-43d4">
-      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1"><!--products--><!--products_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/products_options_json-->
-        <div class="u-expanded-width u-products u-products-1">
-          <div class="u-repeater u-repeater-1"><!--product_item-->
-            <div class="u-align-center u-border-3 u-border-white u-container-style u-custom-color-1 u-products-item u-radius-6 u-repeater-item u-shape-round u-repeater-item-1">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1"><!--product_image-->
-                <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-1" src="{{ url_for('static', filename='images/descarga.png') }}" data-image-width="225" data-image-height="225"><!--/product_image--><!--product_title-->
-                <h4 class="u-product-control u-text u-text-1">
-                  <a class="u-product-title-link" href="#"><!--product_title_content-->Product 1 Title<!--/product_title_content--></a>
-                </h4><!--/product_title-->
-                <ul class="u-align-center u-custom-list u-text u-text-2">
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>Duración:&nbsp;
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>Genero:&nbsp;
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>País:&nbsp;
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>Año:
-                  </li>
-                </ul><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":"Ver mas"}--><!--/options_json-->
-                <a href="/detalles" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-alt-color u-btn-1"><!--product_button_content-->Ver mas<!--/product_button_content--></a><!--/product_button-->
-              </div>
-            </div><!--/product_item--><!--product_item-->
-            <div class="u-align-center u-border-3 u-border-white u-container-style u-custom-color-1 u-products-item u-radius-6 u-repeater-item u-shape-round u-repeater-item-2">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2"><!--product_image-->
-                <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-2" src="{{ url_for('static', filename='images/descarga.png') }}" data-image-width="225" data-image-height="225"><!--/product_image--><!--product_title-->
-                <h4 class="u-product-control u-text u-text-3">
-                  <a class="u-product-title-link" href="#"><!--product_title_content-->Product 2 Title<!--/product_title_content--></a>
-                </h4><!--/product_title-->
-                <ul class="u-align-center u-custom-list u-text u-text-4">
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>Duración:
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>Genero:
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>País:
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>Año:&nbsp;
-                  </li>
-                </ul><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":"ver mas"}--><!--/options_json-->
-                <a href="/detalles" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-alt-color u-btn-2"><!--product_button_content-->ver mas<!--/product_button_content--></a><!--/product_button-->
-              </div>
-            </div><!--/product_item--><!--product_item-->
-            <div class="u-align-center u-border-3 u-border-white u-container-style u-custom-color-1 u-products-item u-radius-6 u-repeater-item u-shape-round u-repeater-item-3">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3"><!--product_image-->
-                <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-3" src="{{ url_for('static', filename='images/descarga.png') }}" data-image-width="225" data-image-height="225"><!--/product_image--><!--product_title-->
-                <h4 class="u-product-control u-text u-text-5">
-                  <a class="u-product-title-link" href="#"><!--product_title_content-->Product 3 Title<!--/product_title_content--></a>
-                </h4><!--/product_title-->
-                <ul class="u-align-center u-custom-list u-text u-text-6">
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>Duración:
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>Genero:
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>País:
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>Año:
-                  </li>
-                </ul><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":"ver mas"}--><!--/options_json-->
-                <a href="/detalles" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-alt-color u-btn-3"><!--product_button_content-->ver mas<!--/product_button_content--></a><!--/product_button-->
-              </div>
-            </div><!--/product_item-->
-          </div>
-        </div><!--/products-->
-      </div>
-    </section>
-    <section class="u-align-center u-clearfix u-custom-color-1 u-section-2" id="carousel_ad02">
-      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1"><!--products--><!--products_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/products_options_json-->
-        <div class="u-expanded-width u-products u-products-1">
-          <div class="u-repeater u-repeater-1"><!--product_item-->
-            <div class="u-align-center u-border-3 u-border-white u-container-style u-custom-color-1 u-products-item u-radius-6 u-repeater-item u-shape-round u-repeater-item-1">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1"><!--product_image-->
-                <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-1" src="{{ url_for('static', filename='images/descarga.png') }}" data-image-width="225" data-image-height="225"><!--/product_image--><!--product_title-->
-                <h4 class="u-product-control u-text u-text-1">
-                  <a class="u-product-title-link" href="#"><!--product_title_content-->Product 1 Title<!--/product_title_content--></a>
-                </h4><!--/product_title-->
-                <ul class="u-align-center u-custom-list u-text u-text-2">
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>Duración:&nbsp;
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>Genero:&nbsp;
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>País:&nbsp;
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>Año:
-                  </li>
-                </ul><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":"Ver mas"}--><!--/options_json-->
-                <a href="/detalles" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-alt-color u-btn-1"><!--product_button_content-->Ver mas<!--/product_button_content--></a><!--/product_button-->
-              </div>
-            </div><!--/product_item--><!--product_item-->
-            <div class="u-align-center u-border-3 u-border-white u-container-style u-custom-color-1 u-products-item u-radius-6 u-repeater-item u-shape-round u-repeater-item-2">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2"><!--product_image-->
-                <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-2" src="{{ url_for('static', filename='images/descarga.png') }}" data-image-width="225" data-image-height="225"><!--/product_image--><!--product_title-->
-                <h4 class="u-product-control u-text u-text-3">
-                  <a class="u-product-title-link" href="#"><!--product_title_content-->Product 2 Title<!--/product_title_content--></a>
-                </h4><!--/product_title-->
-                <ul class="u-align-center u-custom-list u-text u-text-4">
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>Duración:
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>Genero:
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>País:
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>Año:&nbsp;
-                  </li>
-                </ul><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":"ver mas"}--><!--/options_json-->
-                <a href="/detalles" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-alt-color u-btn-2"><!--product_button_content-->ver mas<!--/product_button_content--></a><!--/product_button-->
-              </div>
-            </div><!--/product_item--><!--product_item-->
-            <div class="u-align-center u-border-3 u-border-white u-container-style u-custom-color-1 u-products-item u-radius-6 u-repeater-item u-shape-round u-repeater-item-3">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3"><!--product_image-->
-                <img alt="" class="u-expanded-width u-image u-image-default u-product-control u-image-3" src="{{ url_for('static', filename='images/descarga.png') }}" data-image-width="225" data-image-height="225"><!--/product_image--><!--product_title-->
-                <h4 class="u-product-control u-text u-text-5">
-                  <a class="u-product-title-link" href="#"><!--product_title_content-->Product 3 Title<!--/product_title_content--></a>
-                </h4><!--/product_title-->
-                <ul class="u-align-center u-custom-list u-text u-text-6">
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>Duración:
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>Genero:
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>País:
-                  </li>
-                  <li>
-                    <div class="class u-list-icon">
-                      <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xml:space="preserve" class="u-svg-content">-</div>
-                    </div>Año:
-                  </li>
-                </ul><!--product_button--><!--options_json--><!--{"clickType":"add-to-cart","content":"ver mas"}--><!--/options_json-->
-                <a href="/detalles" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-alt-color u-btn-3"><!--product_button_content-->ver mas<!--/product_button_content--></a><!--/product_button-->
-              </div>
-            </div><!--/product_item-->
-          </div>
-        </div><!--/products-->
-      </div>
-    </section>
-    
-    
-    
-    
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-2d9b"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">Texto de ejemplo. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
-      </div></footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Website Templates</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.com/" target="_blank">
-        <span>Website Builder Software</span>
-      </a>. 
-    </section>
-  </body>
-  <script class="u-script" type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.9.1.min.js') }}" defer=""></script>
-<script class="u-script" type="text/javascript" src="{{ url_for('static', filename='js/nicepage.js') }}" defer=""></script>
+        </div>
+    </nav>
+    <h1 class="display-5 text-center">Cartelera</h1>
+    <div class="container-fluid" style="align-content: center;align-items: center;text-align: center;"><a class="btn btn-primary" role="button" href="/buscar">Buscar</a>
+        <div class="card-group text-center group-cartelera">
+            <div class="card peli-card"><img class="card-img-top w-100 d-block" style="height: 245px;">
+                <div class="card-body">
+                    <h4 class="card-title">{title}</h4>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-sm">
+                            <tbody>
+                                <tr>
+                                    <th>Duración:</th>
+                                    <td>{duracion}</td>
+                                </tr>
+                                <tr>
+                                    <th>Género:</th>
+                                    <td>{genero}</td>
+                                </tr>
+                                <tr>
+                                    <th>País:</th>
+                                    <td>{pais}</td>
+                                </tr>
+                                <tr>
+                                    <th>Año:</th>
+                                    <td>{year}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><button class="btn btn-primary" type="button" onclick="window.location.href='/detalle'">Ver Detalles</button>
+                </div>
+            </div>
+            <div class="card peli-card"><img class="card-img-top w-100 d-block" style="height: 245px;">
+                <div class="card-body">
+                    <h4 class="card-title">{title}</h4>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-sm">
+                            <tbody>
+                                <tr>
+                                    <th>Duración:</th>
+                                    <td>{duracion}</td>
+                                </tr>
+                                <tr>
+                                    <th>Género:</th>
+                                    <td>{genero}</td>
+                                </tr>
+                                <tr>
+                                    <th>País:</th>
+                                    <td>{pais}</td>
+                                </tr>
+                                <tr>
+                                    <th>Año:</th>
+                                    <td>{year}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><button class="btn btn-primary" type="button" onclick="window.location.href='/detalle'">Ver Detalles</button>
+                </div>
+            </div>
+            <div class="card peli-card"><img class="card-img-top w-100 d-block" style="height: 245px;">
+                <div class="card-body">
+                    <h4 class="card-title">{title}</h4>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-sm">
+                            <tbody>
+                                <tr>
+                                    <th>Duración:</th>
+                                    <td>{duracion}</td>
+                                </tr>
+                                <tr>
+                                    <th>Género:</th>
+                                    <td>{genero}</td>
+                                </tr>
+                                <tr>
+                                    <th>País:</th>
+                                    <td>{pais}</td>
+                                </tr>
+                                <tr>
+                                    <th>Año:</th>
+                                    <td>{year}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><button class="btn btn-primary" type="button" onclick="window.location.href='/detalle'"">Ver Detalles</button>
+                </div>
+            </div>
+            <div class="card peli-card"><img class="card-img-top w-100 d-block" style="height: 245px;">
+                <div class="card-body">
+                    <h4 class="card-title">{title}</h4>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-sm">
+                            <tbody>
+                                <tr>
+                                    <th>Duración:</th>
+                                    <td>{duracion}</td>
+                                </tr>
+                                <tr>
+                                    <th>Género:</th>
+                                    <td>{genero}</td>
+                                </tr>
+                                <tr>
+                                    <th>País:</th>
+                                    <td>{pais}</td>
+                                </tr>
+                                <tr>
+                                    <th>Año:</th>
+                                    <td>{year}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><button class="btn btn-primary" type="button" onclick="window.location.href='/detalle'">Ver Detalles</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center text-primary footer-basic" title="asdasd">
+        <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="index.html">Home</a></li>
+            <li class="list-inline-item"><a href="#">Services</a></li>
+            <li class="list-inline-item"><a href="#">About</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+        </ul>
+        <p class="copyright">Mintic Grupo 6-26&nbsp;© 2021</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/Simple-Slider.js') }}"></script>
+</body>
+
 </html>

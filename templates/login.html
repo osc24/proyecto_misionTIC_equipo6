@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nicepage.css') }}" media="screen">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Cartelera.css') }}" media="screen">
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+              x.className += " responsive";
+            } else {
+              x.className = "topnav";
+            }
+          }
+    </script>
+</head>
+<body class="u-body">
+    <header class="u-clearfix u-custom-color-1 u-header u-header" id="sec-7970"><div class="u-clearfix u-sheet u-sheet-1">
+        <a href="/cartelera" class="u-image u-logo u-image-1" data-image-width="80" data-image-height="40">
+          <img src="{{ url_for('static', filename='images/default-logo.png') }}" class="u-logo-image u-logo-image-1">
+        </a>
+        <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
+            <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg><use xlink:href="#menu-hamburger"></use></svg>
+              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="menu-hamburger" viewBox="0 0 16 16" style="width: 16px; height: 16px;"><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</symbol>
+</defs></svg>
+            </a>
+          </div>
+        
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/cartelera" style="padding: 10px 20px;">Cartelera</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/buscar" style="padding: 10px 20px;">Buscar</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/IniciarSesion" style="padding: 10px 20px;">Iniciar Sesión</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/registro" style="padding: 10px 20px;">Registrarse</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+          
+</li></ul>
+</div>
+<li class="u-nav-item"><a class="u-button-style u-nav-link" href="/cartelera" style="padding: 10px 20px;">Cartelera</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/buscar" style="padding: 10px 20px;">Buscar</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/IniciarSesion" style="padding: 10px 20px;">Iniciar Sesión</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/registro" style="padding: 10px 20px;">Registrarse</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></header>
+    <div class="contenedor-padre">
+        <form action="/login" method="POST" class="login">
+            <label for="correo">Correo</label>
+            <input type="text" name="correo">
+            <label for="password">Contraseña:</label>
+            <input type="password" name="password">
+            <input type="submit" name="enviar" value="Iniciar Sesion">
+        </form>
+    </div>
+</body>
+</html>

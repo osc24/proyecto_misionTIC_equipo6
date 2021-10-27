@@ -1,0 +1,10 @@
+
+
+.contenedor-padre{
+    display: flex;
+}
+
+.login{
+    align-items: center;
+    justify-content: center;
+}

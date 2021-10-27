@@ -1,355 +1,201 @@
 <!DOCTYPE html>
-<html style="font-size: 16px;">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="es">
+
+<head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Sinopsis, Reparto, Genero, FUNCIONES">
-    <meta name="description" content="">
-    <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Dasboard</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/nicepage.css') }}" media="screen">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/Dasboard.css') }}" media="screen">
-    <script class="u-script" type="text/javascript" src="{{ url_for('static', filename='js/jquery-1.9.1.min.js') }}" defer=""></script>
-    <script class="u-script" type="text/javascript" src="{{ url_for('static', filename='js/nicepage.js') }}" defer=""></script>
-    <meta name="generator" content="Nicepage 3.27.5, nicepage.com">
-    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
-    
-    
-    
-    
-    <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "",
-		"logo": "images/d0d427c1-e155-43bd-8dcd-0ebb63bf6c59.png"
-}</script>
-    <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="Dasboard">
-    <meta property="og:type" content="website">
-  </head>
-  <body class="u-body"><header class="u-clearfix u-custom-color-1 u-header u-header" id="sec-7970"><div class="u-clearfix u-sheet u-sheet-1">
-        <a href="/cartelera" class="u-image u-logo u-image-1" data-image-width="80" data-image-height="40">
-          <img src="{{ url_for('static', filename='images/default-logo.png') }}" class="u-logo-image u-logo-image-1">
-        </a>
-        <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
-          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
-            <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
-              <svg><use xlink:href="#menu-hamburger"></use></svg>
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="menu-hamburger" viewBox="0 0 16 16" style="width: 16px; height: 16px;"><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
-</symbol>
-</defs></svg>
-            </a>
-          </div>
-          <div class="u-custom-menu u-nav-container">
-            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/cartelera" style="padding: 10px 20px;">Cartelera</a><div class="u-nav-popup"><ul class="u-h-spacing-20 u-nav u-unstyled u-v-spacing-10 u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link u-white">Detalle</a>
-</li></ul>
-</div>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/buscar" style="padding: 10px 20px;">Buscar</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/login" style="padding: 10px 20px;">Iniciar Sesión</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/registro" style="padding: 10px 20px;">Registrarse</a>
-</li></ul>
-          </div>
-          <div class="u-custom-menu u-nav-container-collapse">
-            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-              <div class="u-inner-container-layout u-sidenav-overflow">
-                <div class="u-menu-close"></div>
-                
-</li></ul>
-</div>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/cartelera" style="padding: 10px 20px;">Cartelera</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/buscar" style="padding: 10px 20px;">Buscar</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/login" style="padding: 10px 20px;">Iniciar Sesión</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="/registro" style="padding: 10px 20px;">Registrarse</a>
-</li></ul>
-              </div>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Cinema</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Dark.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+        <div class="container"><a class="navbar-brand" href="index.html"><strong>GPB - Cinemark</strong><br></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse text-truncate" id="navcol-1">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link nav-link" href="index.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Cartelera.html">Cartelera</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Buscar.html">Buscar</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/perfil">Administrar</a></li>
+                </ul><span class="navbar-text actions"> <a class="login" href="Iniciar-Sesión.html">Iniciar Sesión</a><a class="btn btn-light action-button" role="button" href="Registro.html">Registrarse</a></span>
             </div>
-            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
-          </div>
-        </nav>
-      </div></header>
-    <section class="u-align-center u-clearfix u-custom-color-1 u-section-1" id="sec-32df">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-expanded-width u-tabs u-tabs-1">
-          <ul class="u-tab-list u-unstyled" role="tablist">
-            <li class="u-tab-item" role="presentation">
-              <a class="active u-active-white u-button-style u-tab-link u-tab-link-1" id="link-tab-0da5" href="#tab-0da5" role="tab" aria-controls="tab-0da5" aria-selected="true">Gestion usuarios</a>
-            </li>
-            <li class="u-tab-item" role="presentation">
-              <a class="u-active-white u-button-style u-tab-link u-tab-link-2" id="link-tab-14b7" href="#tab-14b7" role="tab" aria-controls="tab-14b7" aria-selected="false">Gestion Funciones</a>
-            </li>
-            <li class="u-tab-item" role="presentation">
-              <a class="u-active-white u-button-style u-tab-link u-tab-link-3" id="link-tab-2917" href="#tab-2917" role="tab" aria-controls="tab-2917" aria-selected="false">Moderar comentarios</a>
-            </li>
-          </ul>
-          <div class="u-tab-content">
-            <div class="u-container-style u-tab-active u-tab-pane u-white u-tab-pane-1" id="tab-0da5" role="tabpanel" aria-labelledby="link-tab-0da5">
-              <div class="u-container-layout u-container-layout-1"><span class="u-icon u-icon-circle u-icon-1" data-href="https://nicepage.com"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 52 52" style=""><use xlink:href="#svg-370f"></use></svg><svg class="u-svg-content" viewBox="0 0 52 52" x="0px" y="0px" id="svg-370f" style="enable-background:new 0 0 52 52;"><path d="M26,0C11.664,0,0,11.663,0,26s11.664,26,26,26s26-11.663,26-26S40.336,0,26,0z M38.5,28H28v11c0,1.104-0.896,2-2,2
-	s-2-0.896-2-2V28H13.5c-1.104,0-2-0.896-2-2s0.896-2,2-2H24V14c0-1.104,0.896-2,2-2s2,0.896,2,2v10h10.5c1.104,0,2,0.896,2,2
-	S39.604,28,38.5,28z"></path></svg></span><span class="u-icon u-icon-circle u-text-black u-icon-2" data-href="https://nicepage.com"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 971.986 971.986" style=""><use xlink:href="#svg-6886"></use></svg><svg class="u-svg-content" viewBox="0 0 971.986 971.986" x="0px" y="0px" id="svg-6886" style="enable-background:new 0 0 971.986 971.986;"><g><path d="M370.216,459.3c10.2,11.1,15.8,25.6,15.8,40.6v442c0,26.601,32.1,40.101,51.1,21.4l123.3-141.3   c16.5-19.8,25.6-29.601,25.6-49.2V500c0-15,5.7-29.5,15.8-40.601L955.615,75.5c26.5-28.8,6.101-75.5-33.1-75.5h-873   c-39.2,0-59.7,46.6-33.1,75.5L370.216,459.3z"></path>
-</g></svg></span><span class="u-icon u-icon-circle u-text-custom-color-1 u-icon-3" data-href="https://nicepage.com"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 56.966 56.966" style=""><use xlink:href="#svg-fd6b"></use></svg><svg class="u-svg-content" viewBox="0 0 56.966 56.966" x="0px" y="0px" id="svg-fd6b" style="enable-background:new 0 0 56.966 56.966;"><path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23
-	s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92
-	c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17
-	s-17-7.626-17-17S14.61,6,23.984,6z"></path></svg></span>
-                <div class="u-expanded-width u-table u-table-responsive u-table-1">
-                  <table class="u-table-entity">
-                    <colgroup>
-                      <col width="16.6%">
-                      <col width="16.6%">
-                      <col width="16.6%">
-                      <col width="16.6%">
-                      <col width="16.6%">
-                      <col width="17%">
-                    </colgroup>
-                    <tbody class="u-table-body">
-                      <tr style="height: 55px;">
-                        <td class="u-first-column u-table-cell">NOMBRE</td>
-                        <td class="u-table-cell">USUARIO</td>
-                        <td class="u-table-cell">DOCUMENTO</td>
-                        <td class="u-table-cell">EMAIL</td>
-                        <td class="u-table-cell">PERFIL</td>
-                        <td class="u-table-cell">ACCION</td>
-                      </tr>
-                      <tr style="height: 56px;">
-                        <td class="u-border-1 u-border-grey-15 u-border-no-left u-border-no-right u-first-column u-table-cell">OSCAR EDUARDO</td>
-                        <td class="u-border-1 u-border-grey-15 u-border-no-left u-border-no-right u-table-cell">OEROSERO</td>
-                        <td class="u-border-1 u-border-grey-15 u-border-no-left u-border-no-right u-table-cell">********</td>
-                        <td class="u-border-1 u-border-grey-15 u-border-no-left u-border-no-right u-table-cell">OE@GMAIL.COM</td>
-                        <td class="u-border-1 u-border-grey-15 u-border-no-left u-border-no-right u-table-cell">ADMIN</td>
-                        <td class="u-border-1 u-border-grey-15 u-border-no-left u-border-no-right u-table-cell"></td>
-                      </tr>
-                      <tr style="height: 56px;">
-                        <td class="u-border-1 u-border-grey-15 u-border-no-left u-border-no-right u-first-column u-table-cell">AURA VELA</td>
-                        <td class="u-border-1 u-border-grey-15 u-border-no-left u-border-no-right u-table-cell">ACVEL</td>
-                        <td class="u-border-1 u-border-grey-15 u-border-no-left u-border-no-right u-table-cell">********</td>
-                        <td class="u-border-1 u-border-grey-15 u-border-no-left u-border-no-right u-table-cell">AV@GMAIL.COM</td>
-                        <td class="u-border-1 u-border-grey-15 u-border-no-left u-border-no-right u-table-cell">ADMIN</td>
-                        <td class="u-border-1 u-border-grey-15 u-border-no-left u-border-no-right u-table-cell"></td>
-                      </tr>
-                      <tr style="height: 56px;">
-                        <td class="u-border-1 u-border-grey-15 u-border-no-left u-border-no-right u-first-column u-table-cell">PEDRO PEREZ</td>
-                        <td class="u-border-1 u-border-grey-15 u-border-no-left u-border-no-right u-table-cell">PPEREZ</td>
-                        <td class="u-border-1 u-border-grey-15 u-border-no-left u-border-no-right u-table-cell">********</td>
-                        <td class="u-border-1 u-border-grey-15 u-border-no-left u-border-no-right u-table-cell">PP@GMAIL.COM</td>
-                        <td class="u-border-1 u-border-grey-15 u-border-no-left u-border-no-right u-table-cell">USUARIO FINAL</td>
-                        <td class="u-border-1 u-border-grey-15 u-border-no-left u-border-no-right u-table-cell"></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div><span class="u-icon u-icon-circle u-icon-4" data-href="https://nicepage.com"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 55.25 55.25" style=""><use xlink:href="#svg-1096"></use></svg><svg class="u-svg-content" viewBox="0 0 55.25 55.25" x="0px" y="0px" id="svg-1096" style="enable-background:new 0 0 55.25 55.25;"><g><path d="M0.523,51.933l-0.497,2.085c-0.016,0.067-0.02,0.135-0.022,0.202C0.004,54.234,0,54.246,0,54.259
-		c0.001,0.114,0.026,0.225,0.065,0.332c0.009,0.025,0.019,0.047,0.03,0.071c0.049,0.107,0.11,0.21,0.196,0.296
-		c0.095,0.095,0.207,0.168,0.328,0.218c0.121,0.05,0.25,0.075,0.379,0.075c0.077,0,0.155-0.009,0.231-0.027l2.086-0.497
-		L0.523,51.933z"></path><path d="M52.618,2.631c-3.51-3.508-9.219-3.508-12.729,0L3.827,38.693C3.81,38.71,3.8,38.731,3.785,38.749
-		c-0.021,0.024-0.039,0.05-0.058,0.076c-0.053,0.074-0.094,0.153-0.125,0.239c-0.009,0.026-0.022,0.049-0.029,0.075
-		c-0.003,0.01-0.009,0.02-0.012,0.03l-2.495,10.48L5.6,54.182l10.48-2.495c0.027-0.006,0.051-0.021,0.077-0.03
-		c0.034-0.011,0.066-0.024,0.099-0.039c0.072-0.033,0.139-0.074,0.201-0.123c0.024-0.019,0.049-0.033,0.072-0.054
-		c0.008-0.008,0.018-0.012,0.026-0.02l36.063-36.063C56.127,11.85,56.127,6.14,52.618,2.631z M17.157,47.992l0.354-3.183
-		L39.889,22.43c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0L16.097,43.395l-4.773,0.53l0.53-4.773l22.38-22.378
-		c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0L10.44,37.738l-3.183,0.354L34.94,10.409l9.9,9.9L17.157,47.992z
-		 M46.254,18.895l-9.9-9.9l1.414-1.414l9.9,9.9L46.254,18.895z M49.082,16.067l-9.9-9.9l1.415-1.415l9.9,9.9L49.082,16.067z"></path>
-</g></svg></span><span class="u-icon u-icon-circle u-icon-5" data-href="https://nicepage.com"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 55.25 55.25" style=""><use xlink:href="#svg-84af"></use></svg><svg class="u-svg-content" viewBox="0 0 55.25 55.25" x="0px" y="0px" id="svg-84af" style="enable-background:new 0 0 55.25 55.25;"><g><path d="M0.523,51.933l-0.497,2.085c-0.016,0.067-0.02,0.135-0.022,0.202C0.004,54.234,0,54.246,0,54.259
-		c0.001,0.114,0.026,0.225,0.065,0.332c0.009,0.025,0.019,0.047,0.03,0.071c0.049,0.107,0.11,0.21,0.196,0.296
-		c0.095,0.095,0.207,0.168,0.328,0.218c0.121,0.05,0.25,0.075,0.379,0.075c0.077,0,0.155-0.009,0.231-0.027l2.086-0.497
-		L0.523,51.933z"></path><path d="M52.618,2.631c-3.51-3.508-9.219-3.508-12.729,0L3.827,38.693C3.81,38.71,3.8,38.731,3.785,38.749
-		c-0.021,0.024-0.039,0.05-0.058,0.076c-0.053,0.074-0.094,0.153-0.125,0.239c-0.009,0.026-0.022,0.049-0.029,0.075
-		c-0.003,0.01-0.009,0.02-0.012,0.03l-2.495,10.48L5.6,54.182l10.48-2.495c0.027-0.006,0.051-0.021,0.077-0.03
-		c0.034-0.011,0.066-0.024,0.099-0.039c0.072-0.033,0.139-0.074,0.201-0.123c0.024-0.019,0.049-0.033,0.072-0.054
-		c0.008-0.008,0.018-0.012,0.026-0.02l36.063-36.063C56.127,11.85,56.127,6.14,52.618,2.631z M17.157,47.992l0.354-3.183
-		L39.889,22.43c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0L16.097,43.395l-4.773,0.53l0.53-4.773l22.38-22.378
-		c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0L10.44,37.738l-3.183,0.354L34.94,10.409l9.9,9.9L17.157,47.992z
-		 M46.254,18.895l-9.9-9.9l1.414-1.414l9.9,9.9L46.254,18.895z M49.082,16.067l-9.9-9.9l1.415-1.415l9.9,9.9L49.082,16.067z"></path>
-</g></svg></span><span class="u-icon u-icon-circle u-icon-6" data-href="https://nicepage.com"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 55.25 55.25" style=""><use xlink:href="#svg-4e1f"></use></svg><svg class="u-svg-content" viewBox="0 0 55.25 55.25" x="0px" y="0px" id="svg-4e1f" style="enable-background:new 0 0 55.25 55.25;"><g><path d="M0.523,51.933l-0.497,2.085c-0.016,0.067-0.02,0.135-0.022,0.202C0.004,54.234,0,54.246,0,54.259
-		c0.001,0.114,0.026,0.225,0.065,0.332c0.009,0.025,0.019,0.047,0.03,0.071c0.049,0.107,0.11,0.21,0.196,0.296
-		c0.095,0.095,0.207,0.168,0.328,0.218c0.121,0.05,0.25,0.075,0.379,0.075c0.077,0,0.155-0.009,0.231-0.027l2.086-0.497
-		L0.523,51.933z"></path><path d="M52.618,2.631c-3.51-3.508-9.219-3.508-12.729,0L3.827,38.693C3.81,38.71,3.8,38.731,3.785,38.749
-		c-0.021,0.024-0.039,0.05-0.058,0.076c-0.053,0.074-0.094,0.153-0.125,0.239c-0.009,0.026-0.022,0.049-0.029,0.075
-		c-0.003,0.01-0.009,0.02-0.012,0.03l-2.495,10.48L5.6,54.182l10.48-2.495c0.027-0.006,0.051-0.021,0.077-0.03
-		c0.034-0.011,0.066-0.024,0.099-0.039c0.072-0.033,0.139-0.074,0.201-0.123c0.024-0.019,0.049-0.033,0.072-0.054
-		c0.008-0.008,0.018-0.012,0.026-0.02l36.063-36.063C56.127,11.85,56.127,6.14,52.618,2.631z M17.157,47.992l0.354-3.183
-		L39.889,22.43c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0L16.097,43.395l-4.773,0.53l0.53-4.773l22.38-22.378
-		c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0L10.44,37.738l-3.183,0.354L34.94,10.409l9.9,9.9L17.157,47.992z
-		 M46.254,18.895l-9.9-9.9l1.414-1.414l9.9,9.9L46.254,18.895z M49.082,16.067l-9.9-9.9l1.415-1.415l9.9,9.9L49.082,16.067z"></path>
-</g></svg></span>
-                <p class="u-text u-text-1">Sample text. Click to select the text box. Click again or double click to start editing the text. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-              </div>
-            </div>
-            <div class="u-align-left u-container-style u-tab-pane u-white u-tab-pane-2" id="tab-14b7" role="tabpanel" aria-labelledby="link-tab-14b7">
-              <div class="u-container-layout u-container-layout-2"><span class="u-icon u-icon-circle u-icon-7" data-href="https://nicepage.com/website-design"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 52 52" style=""><use xlink:href="#svg-bed1"></use></svg><svg class="u-svg-content" viewBox="0 0 52 52" x="0px" y="0px" id="svg-bed1" style="enable-background:new 0 0 52 52;"><path d="M26,0C11.664,0,0,11.663,0,26s11.664,26,26,26s26-11.663,26-26S40.336,0,26,0z M38.5,28H28v11c0,1.104-0.896,2-2,2
-	s-2-0.896-2-2V28H13.5c-1.104,0-2-0.896-2-2s0.896-2,2-2H24V14c0-1.104,0.896-2,2-2s2,0.896,2,2v10h10.5c1.104,0,2,0.896,2,2
-	S39.604,28,38.5,28z"></path></svg></span><span class="u-icon u-icon-circle u-text-black u-icon-8"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 971.986 971.986" style=""><use xlink:href="#svg-c943"></use></svg><svg class="u-svg-content" viewBox="0 0 971.986 971.986" x="0px" y="0px" id="svg-c943" style="enable-background:new 0 0 971.986 971.986;"><g><path d="M370.216,459.3c10.2,11.1,15.8,25.6,15.8,40.6v442c0,26.601,32.1,40.101,51.1,21.4l123.3-141.3   c16.5-19.8,25.6-29.601,25.6-49.2V500c0-15,5.7-29.5,15.8-40.601L955.615,75.5c26.5-28.8,6.101-75.5-33.1-75.5h-873   c-39.2,0-59.7,46.6-33.1,75.5L370.216,459.3z"></path>
-</g></svg></span><span class="u-icon u-icon-circle u-text-custom-color-1 u-icon-9"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 56.966 56.966" style=""><use xlink:href="#svg-c4f9"></use></svg><svg class="u-svg-content" viewBox="0 0 56.966 56.966" x="0px" y="0px" id="svg-c4f9" style="enable-background:new 0 0 56.966 56.966;"><path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23
-	s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92
-	c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17
-	s-17-7.626-17-17S14.61,6,23.984,6z"></path></svg></span>
-                <div class="u-expanded-width u-table u-table-responsive u-table-2">
-                  <table class="u-table-entity">
-                    <colgroup>
-                      <col width="14.3%">
-                      <col width="14.3%">
-                      <col width="14.3%">
-                      <col width="14.3%">
-                      <col width="14.3%">
-                      <col width="14.5%">
-                      <col width="14.000000000000004%">
-                    </colgroup>
-                    <tbody class="u-table-body">
-                      <tr style="height: 46px;">
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">NOMBRE</td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">SINOPSIS</td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">REPARTO</td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">GENERO</td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">FUNCIONES</td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">TRAILER</td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">EDICION</td>
-                      </tr>
-                      <tr style="height: 54px;">
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                      </tr>
-                      <tr style="height: 53px;">
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div><span class="u-icon u-icon-circle u-text-black u-icon-10" data-href="https://nicepage.com"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 512 512" style=""><use xlink:href="#svg-188d"></use></svg><svg class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" id="svg-188d" style="enable-background:new 0 0 512 512;"><g><g><path d="M452,40h-24V0h-40v40H124V0H84v40H60C26.916,40,0,66.916,0,100v352c0,33.084,26.916,60,60,60h392    c33.084,0,60-26.916,60-60V100C512,66.916,485.084,40,452,40z M472,452c0,11.028-8.972,20-20,20H60c-11.028,0-20-8.972-20-20V188    h432V452z M472,148H40v-48c0-11.028,8.972-20,20-20h24v40h40V80h264v40h40V80h24c11.028,0,20,8.972,20,20V148z"></path>
-</g>
-</g><g><g><rect x="76" y="230" width="40" height="40"></rect>
-</g>
-</g><g><g><rect x="156" y="230" width="40" height="40"></rect>
-</g>
-</g><g><g><rect x="236" y="230" width="40" height="40"></rect>
-</g>
-</g><g><g><rect x="316" y="230" width="40" height="40"></rect>
-</g>
-</g><g><g><rect x="396" y="230" width="40" height="40"></rect>
-</g>
-</g><g><g><rect x="76" y="310" width="40" height="40"></rect>
-</g>
-</g><g><g><rect x="156" y="310" width="40" height="40"></rect>
-</g>
-</g><g><g><rect x="236" y="310" width="40" height="40"></rect>
-</g>
-</g><g><g><rect x="316" y="310" width="40" height="40"></rect>
-</g>
-</g><g><g><rect x="76" y="390" width="40" height="40"></rect>
-</g>
-</g><g><g><rect x="156" y="390" width="40" height="40"></rect>
-</g>
-</g><g><g><rect x="236" y="390" width="40" height="40"></rect>
-</g>
-</g><g><g><rect x="316" y="390" width="40" height="40"></rect>
-</g>
-</g><g><g><rect x="396" y="310" width="40" height="40"></rect>
-</g>
-</g></svg></span><span class="u-icon u-icon-circle u-text-black u-icon-11" data-href="https://nicepage.com"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 298 298" style=""><use xlink:href="#svg-aeec"></use></svg><svg class="u-svg-content" viewBox="0 0 298 298" x="0px" y="0px" id="svg-aeec" style="enable-background:new 0 0 298 298;"><path d="M298,33c0-13.255-10.745-24-24-24H24C10.745,9,0,19.745,0,33v232c0,13.255,10.745,24,24,24h250c13.255,0,24-10.745,24-24V33  z M91,39h43v34H91V39z M61,259H30v-34h31V259z M61,73H30V39h31V73z M134,259H91v-34h43V259z M123,176.708v-55.417  c0-8.25,5.868-11.302,12.77-6.783l40.237,26.272c6.902,4.519,6.958,11.914,0.056,16.434l-40.321,26.277  C128.84,188.011,123,184.958,123,176.708z M207,259h-43v-34h43V259z M207,73h-43V39h43V73z M268,259h-31v-34h31V259z M268,73h-31V39  h31V73z"></path></svg></span><span class="u-icon u-icon-circle u-icon-12" data-href="https://nicepage.com"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 55.25 55.25" style=""><use xlink:href="#svg-481f"></use></svg><svg class="u-svg-content" viewBox="0 0 55.25 55.25" x="0px" y="0px" id="svg-481f" style="enable-background:new 0 0 55.25 55.25;"><g><path d="M0.523,51.933l-0.497,2.085c-0.016,0.067-0.02,0.135-0.022,0.202C0.004,54.234,0,54.246,0,54.259
-		c0.001,0.114,0.026,0.225,0.065,0.332c0.009,0.025,0.019,0.047,0.03,0.071c0.049,0.107,0.11,0.21,0.196,0.296
-		c0.095,0.095,0.207,0.168,0.328,0.218c0.121,0.05,0.25,0.075,0.379,0.075c0.077,0,0.155-0.009,0.231-0.027l2.086-0.497
-		L0.523,51.933z"></path><path d="M52.618,2.631c-3.51-3.508-9.219-3.508-12.729,0L3.827,38.693C3.81,38.71,3.8,38.731,3.785,38.749
-		c-0.021,0.024-0.039,0.05-0.058,0.076c-0.053,0.074-0.094,0.153-0.125,0.239c-0.009,0.026-0.022,0.049-0.029,0.075
-		c-0.003,0.01-0.009,0.02-0.012,0.03l-2.495,10.48L5.6,54.182l10.48-2.495c0.027-0.006,0.051-0.021,0.077-0.03
-		c0.034-0.011,0.066-0.024,0.099-0.039c0.072-0.033,0.139-0.074,0.201-0.123c0.024-0.019,0.049-0.033,0.072-0.054
-		c0.008-0.008,0.018-0.012,0.026-0.02l36.063-36.063C56.127,11.85,56.127,6.14,52.618,2.631z M17.157,47.992l0.354-3.183
-		L39.889,22.43c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0L16.097,43.395l-4.773,0.53l0.53-4.773l22.38-22.378
-		c0.391-0.391,0.391-1.023,0-1.414s-1.023-0.391-1.414,0L10.44,37.738l-3.183,0.354L34.94,10.409l9.9,9.9L17.157,47.992z
-		 M46.254,18.895l-9.9-9.9l1.414-1.414l9.9,9.9L46.254,18.895z M49.082,16.067l-9.9-9.9l1.415-1.415l9.9,9.9L49.082,16.067z"></path>
-</g></svg></span>
-              </div>
-            </div>
-            <div class="u-container-style u-tab-pane u-white u-tab-pane-3" id="tab-2917" role="tabpanel" aria-labelledby="link-tab-2917">
-              <div class="u-container-layout u-container-layout-3"><span class="u-icon u-icon-circle u-text-black u-icon-13"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 971.986 971.986" style=""><use xlink:href="#svg-f006"></use></svg><svg class="u-svg-content" viewBox="0 0 971.986 971.986" x="0px" y="0px" id="svg-f006" style="enable-background:new 0 0 971.986 971.986;"><g><path d="M370.216,459.3c10.2,11.1,15.8,25.6,15.8,40.6v442c0,26.601,32.1,40.101,51.1,21.4l123.3-141.3   c16.5-19.8,25.6-29.601,25.6-49.2V500c0-15,5.7-29.5,15.8-40.601L955.615,75.5c26.5-28.8,6.101-75.5-33.1-75.5h-873   c-39.2,0-59.7,46.6-33.1,75.5L370.216,459.3z"></path>
-</g></svg></span><span class="u-icon u-icon-circle u-text-custom-color-1 u-icon-14"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 56.966 56.966" style=""><use xlink:href="#svg-ee56"></use></svg><svg class="u-svg-content" viewBox="0 0 56.966 56.966" x="0px" y="0px" id="svg-ee56" style="enable-background:new 0 0 56.966 56.966;"><path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23
-	s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92
-	c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17
-	s-17-7.626-17-17S14.61,6,23.984,6z"></path></svg></span>
-                <div class="u-expanded-width u-table u-table-responsive u-table-3">
-                  <table class="u-table-entity">
-                    <colgroup>
-                      <col width="12.4%">
-                      <col width="12.4%">
-                      <col width="12.4%">
-                      <col width="13.199999999999989%">
-                      <col width="12.1%">
-                      <col width="12.7%">
-                      <col width="12.4%">
-                      <col width="12.599999999999989%">
-                    </colgroup>
-                    <tbody class="u-table-body">
-                      <tr style="height: 46px;">
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">NOMBRE</td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">COMENTARIO</td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">FECHA</td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">USUARIO</td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">MODERADOR</td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">COMENTARIO</td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">ACTIVO</td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">GUARDAR</td>
-                      </tr>
-                      <tr style="height: 35px;">
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                      </tr>
-                      <tr style="height: 46px;">
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell"></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div><span class="u-icon u-icon-circle u-text-black u-icon-15" data-href="https://nicepage.com"><svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 512 512" style=""><use xlink:href="#svg-3b13"></use></svg><svg class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" id="svg-3b13" style="enable-background:new 0 0 512 512;"><g><g><path d="M346,422H166c-8.284,0-15,6.716-15,15s6.716,15,15,15h180c8.284,0,15-6.716,15-15S354.284,422,346,422z"></path>
-</g>
-</g><g><g><path d="M346,302H166c-8.284,0-15,6.716-15,15s6.716,15,15,15h180c8.284,0,15-6.716,15-15S354.284,302,346,302z"></path>
-</g>
-</g><g><g><path d="M346,362H166c-8.284,0-15,6.716-15,15s6.716,15,15,15h180c8.284,0,15-6.716,15-15S354.284,362,346,362z"></path>
-</g>
-</g><g><g><rect x="121" width="210" height="130"></rect>
-</g>
-</g><g><g><path d="M507.606,84.394l-80-80C424.793,1.581,420.978,0,417,0h-56v145c0,8.284-6.716,15-15,15H106c-8.284,0-15-6.716-15-15V0H15    C6.716,0,0,6.716,0,15v482c0,8.284,6.716,15,15,15c4.645,0,475.762,0,482,0c8.284,0,15-6.716,15-15V95    C512,91.022,510.419,87.207,507.606,84.394z M391,482H121V272h270V482z"></path>
-</g>
-</g></svg></span>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
-    
-    
-    
-    
-    <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-2d9b"><div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">Texto de ejemplo. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
-      </div></footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Website Templates</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.com/" target="_blank">
-        <span>Website Builder Software</span>
-      </a>. 
-    </section>
-  </body>
+    </nav>
+    <h1 class="display-5 text-center">Dashboard De Control</h1>
+    <div class="container-fluid" style="align-content: center;align-items: center;text-align: center;padding-right: 20px;padding-left: 20px;">
+        <div>
+            <ul class="nav nav-pills nav-justified" role="tablist">
+                <li class="nav-item" role="presentation"><a class="nav-link" role="tab" data-bs-toggle="pill" href="#tab-1">Gestión De Usuarios</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link active" role="tab" data-bs-toggle="pill" href="#tab-2">Gestión Función</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane" role="tabpanel" id="tab-1">
+                    <div class="table-responsive" style="padding: 0;">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Perfil</th>
+                                    <th>Nombres</th>
+                                    <th>Apellidos</th>
+                                    <th>Cédula</th>
+                                    <th>correo</th>
+                                    <th>contraseña</th>
+                                    <th>opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{perfil}</td>
+                                    <td>{nombre}</td>
+                                    <td>{appellidos}</td>
+                                    <td>{cedula}</td>
+                                    <td>{correo}</td>
+                                    <td>{contraseña}</td>
+                                    <td>
+                                        <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{perfil}</td>
+                                    <td>{nombre}</td>
+                                    <td>{appellidos}</td>
+                                    <td>{cedula}</td>
+                                    <td>{correo}</td>
+                                    <td>{contraseña}</td>
+                                    <td>
+                                        <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{perfil}</td>
+                                    <td>{nombre}</td>
+                                    <td>{appellidos}</td>
+                                    <td>{cedula}</td>
+                                    <td>{correo}</td>
+                                    <td>{contraseña}</td>
+                                    <td>
+                                        <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{perfil}</td>
+                                    <td>{nombre}</td>
+                                    <td>{appellidos}</td>
+                                    <td>{cedula}</td>
+                                    <td>{correo}</td>
+                                    <td>{contraseña}</td>
+                                    <td>
+                                        <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane active" role="tabpanel" id="tab-2">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Título</th>
+                                    <th>Duracion</th>
+                                    <th>GÉNERO</th>
+                                    <th>año</th>
+                                    <th>activa</th>
+                                    <th>TIQUETES</th>
+                                    <th>vendidos</th>
+                                    <th>opciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{titulo}</td>
+                                    <td>{duracion}</td>
+                                    <td>{genero}</td>
+                                    <td>{año}</td>
+                                    <td><input type="checkbox"></td>
+                                    <td>{tiquetesTotales}</td>
+                                    <td>{tiquetesVendidos}</td>
+                                    <td>
+                                        <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{titulo}</td>
+                                    <td>{duracion}</td>
+                                    <td>{genero}</td>
+                                    <td>{año}</td>
+                                    <td><input type="checkbox"></td>
+                                    <td>{tiquetesTotales}</td>
+                                    <td>{tiquetesVendidos}</td>
+                                    <td>
+                                        <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{titulo}</td>
+                                    <td>{duracion}</td>
+                                    <td>{genero}</td>
+                                    <td>{año}</td>
+                                    <td><input type="checkbox"></td>
+                                    <td>{tiquetesTotales}</td>
+                                    <td>{tiquetesVendidos}</td>
+                                    <td>
+                                        <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{titulo}</td>
+                                    <td>{duracion}</td>
+                                    <td>{genero}</td>
+                                    <td>{año}</td>
+                                    <td><input type="checkbox"></td>
+                                    <td>{tiquetesTotales}</td>
+                                    <td>{tiquetesVendidos}</td>
+                                    <td>
+                                        <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{titulo}</td>
+                                    <td>{duracion}</td>
+                                    <td>{genero}</td>
+                                    <td>{año}</td>
+                                    <td><input type="checkbox"></td>
+                                    <td>{tiquetesTotales}</td>
+                                    <td>{tiquetesVendidos}</td>
+                                    <td>
+                                        <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div><a class="btn btn-primary" role="button" href="Buscar.html">Agregar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center text-primary footer-basic" title="asdasd">
+        <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="index.html">Home</a></li>
+            <li class="list-inline-item"><a href="#">Services</a></li>
+            <li class="list-inline-item"><a href="#">About</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+        </ul>
+        <p class="copyright">Mintic Grupo 6-26&nbsp;© 2021</p>
+    </footer>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="assets/js/Simple-Slider.js"></script>
+</body>
+
 </html>
