@@ -28,7 +28,7 @@ ruta_db="database.db"
 app=Flask(__name__)
 app.secret_key=os.urandom(24)
 
-@app.route("/", methods=["GET"])
+@app.route("/", methods=["GET","POST"])
 def inicio():
     return render_template(ruta_inicio)
 
@@ -36,21 +36,25 @@ def inicio():
 def cartelera():
     return render_template(ruta_cartelera)
 
-@app.route("/detalle")
+@app.route("/detalle", methods=["GET","POST"])
 def detalles():
     return render_template(ruta_detalle)
 
-@app.route("/buscar")
+@app.route("/buscar", methods=["GET","POST"])
 def buscar():
     return render_template(ruta_buscar)
 
-@app.route("/login")
+@app.route("/login", methods=["GET","POST"])
 def login():
     return render_template(ruta_login)
 
-@app.route("/registro")
+@app.route("/registro", methods=["GET","POST"])
 def registro():
     return render_template(ruta_registro)
+
+@app.route("/perfil", methods=["GET","POST"])
+def perfil():
+    return render_template(ruta_perfil)
 
 if __name__=="__main__":
     app.run(debug=True, port=8000)
