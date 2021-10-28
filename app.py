@@ -6,7 +6,7 @@ from flask import *
 from flask.scaffold import _matching_loader_thinks_module_is_package
 import sqlite3
 from sqlite3 import Error
-
+import base64
 from markupsafe import escape 
 import hashlib
 from werkzeug.exceptions import UnsupportedMediaType
@@ -54,10 +54,25 @@ def cartelera():
                 cur.execute("SELECT rol FROM usuarios WHERE correo=?",[session["usuario"]])
                 row = cur.fetchone()
                 rol=row[0]
-                return render_template(ruta_cartelera,rol=rol)
+                con.row_factory = sqlite3.Row #Convierte la respuesta de la BD en un diccionario
+                cur = con.cursor()
+                cur.execute("SELECT * FROM peliculas LIMIT 4")
+                row_pelicula = cur.fetchall()  
+                return render_template(ruta_cartelera,rol=rol,row_pelicula=row_pelicula)
         except Error:
             print(Error)
-    return render_template(ruta_cartelera,rol=0)
+    else:
+        try:
+            with sqlite3.connect(ruta_db) as con: 
+                con.row_factory = sqlite3.Row #Convierte la respuesta de la BD en un diccionario
+                cur = con.cursor()
+                cur.execute("SELECT * FROM peliculas LIMIT 4")
+                row_pelicula = cur.fetchall()
+                
+                return render_template(ruta_cartelera,rol=0,row_pelicula=row_pelicula)
+        except Error:
+            print(Error)
+        return render_template(ruta_cartelera,rol=0)
 
 @app.route("/detalle", methods=["GET","POST"])
 def detalles():
