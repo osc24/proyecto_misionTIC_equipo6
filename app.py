@@ -30,7 +30,7 @@ app=Flask(__name__)
 app.secret_key=os.urandom(24)
 
 @app.route("/", methods=["GET","POST"])
-def inicio():
+def inicio():   
     if "usuario" in session:
         try:
             with sqlite3.connect(ruta_db) as con: 
@@ -167,7 +167,11 @@ def dashboard():
                 rol=row[0]
                 if rol=="usuario_final":
                     return "No tiene los permisos para esta acción"
-                return render_template(ruta_dashboard,rol=rol)
+                con.row_factory = sqlite3.Row #Convierte la respuesta de la BD en un diccionario
+                cur = con.cursor()
+                cur.execute("SELECT * FROM usuarios")
+                row_usuarios = cur.fetchall()  
+                return render_template(ruta_dashboard,rol=rol,row_usuarios=row_usuarios)
         except Error:
             print(Error)
     return "Debe iniciar sesion"

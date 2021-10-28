@@ -28,6 +28,11 @@
                     {% else %}
                         <li class="nav-item"><a class="nav-link" href="/perfil">Perfil</a></li>
                     {% endif %}
+                {% if rol ==0 %}
+                    </ul><span class="navbar-text actions"> <a class="login" href="/login">Iniciar Sesión</a><a class="btn btn-light action-button" role="button" href="/registro">Registrarse</a></span>               
+                {% else %}
+                    </ul><span class="navbar-text actions"> <a class="login" href="/logout">Cerrar Sesion</a></span> 
+                {% endif %}
             </div>
         </div>
     </nav>
@@ -54,50 +59,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>{perfil}</td>
-                                    <td>{nombre}</td>
-                                    <td>{appellidos}</td>
-                                    <td>{cedula}</td>
-                                    <td>{correo}</td>
-                                    <td>{contraseña}</td>
-                                    <td>
-                                        <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>{perfil}</td>
-                                    <td>{nombre}</td>
-                                    <td>{appellidos}</td>
-                                    <td>{cedula}</td>
-                                    <td>{correo}</td>
-                                    <td>{contraseña}</td>
-                                    <td>
-                                        <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>{perfil}</td>
-                                    <td>{nombre}</td>
-                                    <td>{appellidos}</td>
-                                    <td>{cedula}</td>
-                                    <td>{correo}</td>
-                                    <td>{contraseña}</td>
-                                    <td>
-                                        <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>{perfil}</td>
-                                    <td>{nombre}</td>
-                                    <td>{appellidos}</td>
-                                    <td>{cedula}</td>
-                                    <td>{correo}</td>
-                                    <td>{contraseña}</td>
-                                    <td>
-                                        <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
-                                    </td>
-                                </tr>
+                                {% for r in row_usuarios %}
+                                    <tr>
+                                    
+                                        <td>{{ r["id_usuario"] }}</td>
+                                        <td>{{ r["nombre"] }}</td>
+                                        <td>{{ r["apellidos"] }}</td>
+                                        <td>{{ r["documento"] }}</td>
+                                        <td>{{ r["correo"] }}</td>
+                                        <td>{{ r["clave"] }}</td>
+                                        <td>{{ r["rol"] }}</td>
+                                        <td>
+                                            <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                
+                
                             </tbody>
                         </table>
                     </div>
@@ -115,6 +93,7 @@
                                     <th>TIQUETES</th>
                                     <th>vendidos</th>
                                     <th>opciones</th>
+                                    <th>Poster</th>
                                 </tr>
                             </thead>
                             <tbody>
