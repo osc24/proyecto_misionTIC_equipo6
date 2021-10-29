@@ -5,17 +5,19 @@ form {
 .group-cartelera {
   padding: 10px;
 }
-
+.form-input-center {
+  text-align: center;
+}
 .card {
   margin: 10px;
 }
 
 .peli-card {
-  min-width: 200px;
+  min-width: 100px;
 }
 
 .peli-card {
-  min-width: 220px;
+  min-width: 120px;
 }
 
 .div-form {

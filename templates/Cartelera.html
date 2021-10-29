@@ -22,123 +22,51 @@
                     <li class="nav-item"><a class="nav-link nav-link" href="/">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link active" href="/cartelera">Cartelera</a></li>
                     <li class="nav-item"><a class="nav-link" href="/buscar">Buscar</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/perfil">Administrar</a></li>
-                </ul><span class="navbar-text actions"> <a class="login" href="/login">Iniciar Sesión</a><a class="btn btn-light action-button" role="button" href="/registro">Registrarse</a></span>
+                    {% if rol == "administrador" or rol=="superadministrador" %}
+                        <li class="nav-item"><a class="nav-link" href="/perfil/{{id}}">Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/dashboard">Administrar</a></li>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link" href="/perfil/{{id}}">Perfil</a></li>
+                    {% endif %}
+                {% if rol ==0 %}
+                    </ul><span class="navbar-text actions"> <a class="login" href="/login">Iniciar Sesión</a><a class="btn btn-light action-button" role="button" href="/registro">Registrarse</a></span>               
+                {% else %}
+                    </ul><span class="navbar-text actions"> <a class="login" href="/logout">Cerrar Sesion</a></span> 
+                {% endif %}
             </div>
         </div>
     </nav>
     <h1 class="display-5 text-center">Cartelera</h1>
     <div class="container-fluid" style="align-content: center;align-items: center;text-align: center;"><a class="btn btn-primary" role="button" href="/buscar">Buscar</a>
         <div class="card-group text-center group-cartelera">
-            <div class="card peli-card"><img class="card-img-top w-100 d-block" style="height: 245px;">
+        {% for r in row_pelicula %}
+        {% if r["enCartelera"]=="True" %}
+            <div class="card peli-card"><img class="card-img-top w-100 d-block" style="height: 300px;width: 70px;" src="data:image/png;base64,{{ r['poster'] }}">
                 <div class="card-body">
-                    <h4 class="card-title">{title}</h4>
+                    <h4 class="card-title">{{ r["nombrePelicula"] }}</h4>
                     <div class="table-responsive">
                         <table class="table table-striped table-hover table-sm">
                             <tbody>
                                 <tr>
                                     <th>Duración:</th>
-                                    <td>{duracion}</td>
+                                    <td>{{ r["duracion"] }}</td>
                                 </tr>
                                 <tr>
                                     <th>Género:</th>
-                                    <td>{genero}</td>
-                                </tr>
-                                <tr>
-                                    <th>País:</th>
-                                    <td>{pais}</td>
+                                    <td>{{ r["genero"] }}</td>
                                 </tr>
                                 <tr>
                                     <th>Año:</th>
-                                    <td>{year}</td>
+                                    <td>{{ r.year }}</td>
                                 </tr>
                             </tbody>
                         </table>
-                    </div><button class="btn btn-primary" type="button" onclick="window.location.href='/detalle'">Ver Detalles</button>
+                    </div><button class="btn btn-primary" type="button" onclick="window.location.href='/detalle/{{r.id_pelicula}}'">Ver Detalles</button>
                 </div>
             </div>
-            <div class="card peli-card"><img class="card-img-top w-100 d-block" style="height: 245px;">
-                <div class="card-body">
-                    <h4 class="card-title">{title}</h4>
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover table-sm">
-                            <tbody>
-                                <tr>
-                                    <th>Duración:</th>
-                                    <td>{duracion}</td>
-                                </tr>
-                                <tr>
-                                    <th>Género:</th>
-                                    <td>{genero}</td>
-                                </tr>
-                                <tr>
-                                    <th>País:</th>
-                                    <td>{pais}</td>
-                                </tr>
-                                <tr>
-                                    <th>Año:</th>
-                                    <td>{year}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div><button class="btn btn-primary" type="button" onclick="window.location.href='/detalle'">Ver Detalles</button>
-                </div>
-            </div>
-            <div class="card peli-card"><img class="card-img-top w-100 d-block" style="height: 245px;">
-                <div class="card-body">
-                    <h4 class="card-title">{title}</h4>
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover table-sm">
-                            <tbody>
-                                <tr>
-                                    <th>Duración:</th>
-                                    <td>{duracion}</td>
-                                </tr>
-                                <tr>
-                                    <th>Género:</th>
-                                    <td>{genero}</td>
-                                </tr>
-                                <tr>
-                                    <th>País:</th>
-                                    <td>{pais}</td>
-                                </tr>
-                                <tr>
-                                    <th>Año:</th>
-                                    <td>{year}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div><button class="btn btn-primary" type="button" onclick="window.location.href='/detalle'"">Ver Detalles</button>
-                </div>
-            </div>
-            <div class="card peli-card"><img class="card-img-top w-100 d-block" style="height: 245px;">
-                <div class="card-body">
-                    <h4 class="card-title">{title}</h4>
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover table-sm">
-                            <tbody>
-                                <tr>
-                                    <th>Duración:</th>
-                                    <td>{duracion}</td>
-                                </tr>
-                                <tr>
-                                    <th>Género:</th>
-                                    <td>{genero}</td>
-                                </tr>
-                                <tr>
-                                    <th>País:</th>
-                                    <td>{pais}</td>
-                                </tr>
-                                <tr>
-                                    <th>Año:</th>
-                                    <td>{year}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div><button class="btn btn-primary" type="button" onclick="window.location.href='/detalle'">Ver Detalles</button>
-                </div>
-            </div>
-        </div>
+        {% endif %}
+        {% endfor %}
+            
     </div>
     <footer class="text-center text-primary footer-basic" title="asdasd">
         <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
