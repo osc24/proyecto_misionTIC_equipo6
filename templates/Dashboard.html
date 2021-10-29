@@ -59,6 +59,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+
                                 {% for r in row_usuarios %}
                                     <tr>
                                     
@@ -72,12 +73,10 @@
                                             <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;" onclick="window.location.href='/editarUsuario/{{r.id_usuario}}'" >Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;" onclick="window.location.href='/eliminarUsuario/{{r.id_usuario}}'">Eliminar</button></div>
                                         </td>
                                     </tr>
-                                {% endfor %}
-                                
-                
+                                {% endfor %} 
                             </tbody>
                         </table>
-                    </div>
+                    </div><a class="btn btn-primary" role="button" href="Buscar.html">Agregar</a>
                 </div>
                 <div class="tab-pane active" role="tabpanel" id="tab-2">
                     <div class="table-responsive">
