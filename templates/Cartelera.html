@@ -23,10 +23,10 @@
                     <li class="nav-item"><a class="nav-link active" href="/cartelera">Cartelera</a></li>
                     <li class="nav-item"><a class="nav-link" href="/buscar">Buscar</a></li>
                     {% if rol == "administrador" or rol=="superadministrador" %}
-                        <li class="nav-item"><a class="nav-link" href="/perfil">Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/perfil/{{id}}">Perfil</a></li>
                         <li class="nav-item"><a class="nav-link" href="/dashboard">Administrar</a></li>
                     {% else %}
-                        <li class="nav-item"><a class="nav-link" href="/perfil">Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/perfil/{{id}}">Perfil</a></li>
                     {% endif %}
                 {% if rol ==0 %}
                     </ul><span class="navbar-text actions"> <a class="login" href="/login">Iniciar Sesión</a><a class="btn btn-light action-button" role="button" href="/registro">Registrarse</a></span>               
@@ -40,7 +40,8 @@
     <div class="container-fluid" style="align-content: center;align-items: center;text-align: center;"><a class="btn btn-primary" role="button" href="/buscar">Buscar</a>
         <div class="card-group text-center group-cartelera">
         {% for r in row_pelicula %}
-            <div class="card peli-card"><img class="card-img-top w-100 d-block" style="height: 245px;" src="data:image/png;base64,{{ r['poster'] }}">
+        {% if r["enCartelera"]=="True" %}
+            <div class="card peli-card"><img class="card-img-top w-100 d-block" style="height: 300px;width: 70px;" src="data:image/png;base64,{{ r['poster'] }}">
                 <div class="card-body">
                     <h4 class="card-title">{{ r["nombrePelicula"] }}</h4>
                     <div class="table-responsive">
@@ -55,14 +56,15 @@
                                     <td>{{ r["genero"] }}</td>
                                 </tr>
                                 <tr>
-                                    <th>País:</th>
-                                    <td>{{ r["year"] }}</td>
+                                    <th>Año:</th>
+                                    <td>{{ r.year }}</td>
                                 </tr>
                             </tbody>
                         </table>
-                    </div><button class="btn btn-primary" type="button" onclick="window.location.href='/detalle'">Ver Detalles</button>
+                    </div><button class="btn btn-primary" type="button" onclick="window.location.href='/detalle/{{r.id_pelicula}}'">Ver Detalles</button>
                 </div>
             </div>
+        {% endif %}
         {% endfor %}
             
     </div>

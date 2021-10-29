@@ -23,10 +23,10 @@
                     <li class="nav-item"><a class="nav-link" href="/cartelera">Cartelera</a></li>
                     <li class="nav-item"><a class="nav-link" href="/buscar">Buscar</a></li>
                     {% if rol == "administrador" or rol=="superadministrador" %}
-                        <li class="nav-item"><a class="nav-link" href="/perfil">Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/perfil/{{id}}">Perfil</a></li>
                         <li class="nav-item"><a class="nav-link" href="/dashboard">Administrar</a></li>
                     {% else %}
-                        <li class="nav-item"><a class="nav-link" href="/perfil">Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/perfil/{{id}}">Perfil</a></li>
                     {% endif %}
                 {% if rol ==0 %}
                     </ul><span class="navbar-text actions"> <a class="login" href="/login">Iniciar Sesión</a><a class="btn btn-light action-button" role="button" href="/registro">Registrarse</a></span>               
@@ -53,8 +53,8 @@
                                     <th>Nombres</th>
                                     <th>Apellidos</th>
                                     <th>Cédula</th>
-                                    <th>correo</th>
-                                    <th>contraseña</th>
+                                    <th>Correo</th>
+                                    <th>Rol</th>
                                     <th>opciones</th>
                                 </tr>
                             </thead>
@@ -67,7 +67,6 @@
                                         <td>{{ r["apellidos"] }}</td>
                                         <td>{{ r["documento"] }}</td>
                                         <td>{{ r["correo"] }}</td>
-                                        <td>{{ r["clave"] }}</td>
                                         <td>{{ r["rol"] }}</td>
                                         <td>
                                             <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
@@ -92,71 +91,27 @@
                                     <th>activa</th>
                                     <th>TIQUETES</th>
                                     <th>vendidos</th>
-                                    <th>opciones</th>
                                     <th>Poster</th>
+                                    <th>opciones</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                {% for r in row_peliculas %}
                                 <tr>
-                                    <td>{titulo}</td>
-                                    <td>{duracion}</td>
-                                    <td>{genero}</td>
-                                    <td>{año}</td>
+                                    <td>{{r.nombrePelicula}}</td>
+                                    <td>{{r.duracion}}</td>
+                                    <td>{{r.genero}}</td>
+                                    <td>{{r.year}}</td>
                                     <td><input type="checkbox"></td>
-                                    <td>{tiquetesTotales}</td>
-                                    <td>{tiquetesVendidos}</td>
+                                    <td>{{r.tiquetesTotales}}</td>
+                                    <td>{{r.tiquetesVendidos}}</td>
+                                    <td><input type="file" style="width: 200px;" accept="image/*"></td>
                                     <td>
                                         <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>{titulo}</td>
-                                    <td>{duracion}</td>
-                                    <td>{genero}</td>
-                                    <td>{año}</td>
-                                    <td><input type="checkbox"></td>
-                                    <td>{tiquetesTotales}</td>
-                                    <td>{tiquetesVendidos}</td>
-                                    <td>
-                                        <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>{titulo}</td>
-                                    <td>{duracion}</td>
-                                    <td>{genero}</td>
-                                    <td>{año}</td>
-                                    <td><input type="checkbox"></td>
-                                    <td>{tiquetesTotales}</td>
-                                    <td>{tiquetesVendidos}</td>
-                                    <td>
-                                        <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>{titulo}</td>
-                                    <td>{duracion}</td>
-                                    <td>{genero}</td>
-                                    <td>{año}</td>
-                                    <td><input type="checkbox"></td>
-                                    <td>{tiquetesTotales}</td>
-                                    <td>{tiquetesVendidos}</td>
-                                    <td>
-                                        <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>{titulo}</td>
-                                    <td>{duracion}</td>
-                                    <td>{genero}</td>
-                                    <td>{año}</td>
-                                    <td><input type="checkbox"></td>
-                                    <td>{tiquetesTotales}</td>
-                                    <td>{tiquetesVendidos}</td>
-                                    <td>
-                                        <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;">Eliminar</button></div>
-                                    </td>
-                                </tr>
+                                {% endfor %}
+
                             </tbody>
                         </table>
                     </div><a class="btn btn-primary" role="button" href="Buscar.html">Agregar</a>

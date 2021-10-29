@@ -23,13 +23,15 @@
                     <li class="nav-item"><a class="nav-link" href="/cartelera">Cartelera</a></li>
                     <li class="nav-item"><a class="nav-link active" href="/buscar">Buscar</a></li>
                     {% if rol == "administrador" or rol=="superadministrador" %}
-                        <li class="nav-item"><a class="nav-link" href="/perfil">Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/perfil/{{id}}">Perfil</a></li>
                         <li class="nav-item"><a class="nav-link" href="/dashboard">Administrar</a></li>
                     {% else %}
-                        <li class="nav-item"><a class="nav-link" href="/perfil">Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/perfil/{{id}}">Perfil</a></li>
                     {% endif %}
             {% if rol ==0 %}
                 </ul><span class="navbar-text actions"> <a class="login" href="/login">Iniciar Sesión</a><a class="btn btn-light action-button" role="button" href="/registro">Registrarse</a></span>               
+            {% else %}
+                </ul><span class="navbar-text actions"> <a class="login" href="/logout">Cerrar Sesion</a></span> 
             {% endif %}
             </div>
         </div>
@@ -38,107 +40,46 @@
     <div class="container">
         <div class="row" style="background: var(--bs-indigo);color: var(--bs-gray-300);border-style: solid;border-color: var(--bs-gray-900);border-radius: 15px;">
             <div class="col-md-4">
-                <form><label class="form-label">Palabra Clave</label><input class="form-control" type="text" style="text-align-last: center;" name="busqueda" placeholder="Buscar"><label class="form-label">Género</label><select class="form-select" style="text-align-last: center;" name="genero">
+                <form action="/buscar" method="POST"><label class="form-label">Palabra Clave</label><input class="form-control" type="text" style="text-align-last: center;" name="busqueda" placeholder="Buscar"><label class="form-label">Género</label><select class="form-select" style="text-align-last: center;" name="genero">
                         <optgroup label="Genero">
-                            <option value="accion" selected="">Acción</option>
-                            <option value="comedia">Comedia</option>
-                            <option value="romance">Romance</option>
-                        </optgroup>
-                    </select><label class="form-label">País</label><select class="form-select" style="text-align-last: center;" name="pais">
-                        <optgroup label="Colombia">
-                            <option value="colombia" selected="">Colombia</option>
-                            <option value="usa">Estados Unidos</option>
-                            <option value="argentina">Argentina</option>
+                            <option value="-seleccionar-" selected="">Seleccionar</option>
+                            <option value="Acción">Acción</option>
+                            <option value="Comedia">Comedia</option>
+                            <option value="Romance">Romance</option>
                         </optgroup>
                     </select><label class="form-label">Año</label><input class="form-control" type="number" style="margin-bottom: 20px;text-align-last: center;" name="year" min="2000" max="2021" step="1" placeholder="Año">
                     <div class="d-flex flex-row mb-3"><button class="btn btn-primary d-block w-100" type="submit">Buscar</button><button class="btn btn-primary d-block w-100" type="reset" style="margin: 0px 4px;">Limpiar</button></div>
                 </form>
             </div>
             <div class="col">
-                <div class="d-flex flex-grow-1 flex-shrink-1 flex-fill justify-content-around align-items-center align-content-around flex-wrap" style="background: var(--bs-gray-100);border-style: solid;border-radius: 30px;margin-top: 5px;margin-bottom: 5px;"><img style="height: 200px;width: auto;min-width: 250px;min-height: 200px;max-height: auto;background: var(--bs-gray-600);border-radius: 15px;border: 1px none var(--bs-indigo);">
+                {% if row_busqueda !=0 %}
+                {% for r in row_busqueda %}
+                <div class="d-flex flex-grow-1 flex-shrink-1 flex-fill justify-content-around align-items-center align-content-around flex-wrap" style="background: var(--bs-gray-100);border-style: solid;border-radius: 30px;margin-top: 5px;margin-bottom: 5px;"><img style="height: 200px;width: auto;min-width: 250px;min-height: 200px;max-height: auto;background: var(--bs-gray-600);border-radius: 15px;border: 1px none var(--bs-indigo);" src="data:image/png;base64,{{ r['poster'] }}">
                     <div class="table-responsive">
                         <table class="table table-striped table-hover table-sm">
                             <tbody>
                                 <tr>
                                     <th>Título:</th>
-                                    <td>{titulo}</td>
+                                    <td>{{r.nombrePelicula}}</td>
                                 </tr>
                                 <tr>
                                     <th>Duración:</th>
-                                    <td>{duracion}</td>
+                                    <td>{{r.duracion}}</td>
                                 </tr>
                                 <tr>
                                     <th>Género:</th>
-                                    <td>{genero}</td>
-                                </tr>
-                                <tr>
-                                    <th>País:</th>
-                                    <td>{pais}</td>
+                                    <td>{{r.genero}}</td>
                                 </tr>
                                 <tr>
                                     <th>Año:</th>
-                                    <td>{year}</td>
+                                    <td>{{r.year}}</td>
                                 </tr>
                             </tbody>
                         </table>
-                    </div><button class="btn btn-primary" type="button" style="max-height: 60px;min-height: 30px;" onclick="window.location.href='/detalle'">Ver Detalles</button>
+                    </div><button class="btn btn-primary" type="button" style="max-height: 60px;min-height: 30px;" onclick="window.location.href='/detalle/{{r.id_pelicula}}'">Ver Detalles</button>
                 </div>
-                <div class="d-flex flex-grow-1 flex-shrink-1 flex-fill justify-content-around align-items-center align-content-around flex-wrap" style="background: var(--bs-gray-100);border-style: solid;border-radius: 30px;margin-top: 5px;margin-bottom: 5px;"><img style="height: 200px;width: auto;min-width: 250px;min-height: 200px;max-height: auto;background: var(--bs-gray-600);border-radius: 15px;border: 1px none var(--bs-indigo);">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover table-sm">
-                            <tbody>
-                                <tr>
-                                    <th>Título:</th>
-                                    <td>{titulo}</td>
-                                </tr>
-                                <tr>
-                                    <th>Duración:</th>
-                                    <td>{duracion}</td>
-                                </tr>
-                                <tr>
-                                    <th>Género:</th>
-                                    <td>{genero}</td>
-                                </tr>
-                                <tr>
-                                    <th>País:</th>
-                                    <td>{pais}</td>
-                                </tr>
-                                <tr>
-                                    <th>Año:</th>
-                                    <td>{year}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div><button class="btn btn-primary" type="button" style="max-height: 60px;min-height: 30px;" onclick="window.location.href='/detalle'">Ver Detalles</button>
-                </div>
-                <div class="d-flex flex-grow-1 flex-shrink-1 flex-fill justify-content-around align-items-center align-content-around flex-wrap" style="background: var(--bs-gray-100);border-style: solid;border-radius: 30px;margin-top: 5px;margin-bottom: 5px;"><img style="height: 200px;width: auto;min-width: 250px;min-height: 200px;max-height: auto;background: var(--bs-gray-600);border-radius: 15px;border: 1px none var(--bs-indigo);">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover table-sm">
-                            <tbody>
-                                <tr>
-                                    <th>Título:</th>
-                                    <td>{titulo}</td>
-                                </tr>
-                                <tr>
-                                    <th>Duración:</th>
-                                    <td>{duracion}</td>
-                                </tr>
-                                <tr>
-                                    <th>Género:</th>
-                                    <td>{genero}</td>
-                                </tr>
-                                <tr>
-                                    <th>País:</th>
-                                    <td>{pais}</td>
-                                </tr>
-                                <tr>
-                                    <th>Año:</th>
-                                    <td>{year}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div><button class="btn btn-primary" type="button" style="max-height: 60px;min-height: 30px;" onclick="window.location.href='/detalle'">Ver Detalles</button>
-                </div>
+                {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>
