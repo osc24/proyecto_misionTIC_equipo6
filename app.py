@@ -22,6 +22,9 @@ ruta_login="Iniciar-Sesion.html"
 ruta_perfil="Perfil.html"
 ruta_registro="Registro.html"
 ruta_db="database.db"
+ruta_editarFuncion="Editar-Funcion.html"
+ruta_editarUsuario="Editar-Usuario.html"
+ruta_agregarFuncion="Agregar-Funcion.html"
 ##
 
 def roleID():
@@ -38,6 +41,8 @@ def roleID():
             return rol,id
     except Error:
         print(Error)
+
+
 
 app=Flask(__name__)
 app.secret_key=os.urandom(24)
@@ -367,7 +372,7 @@ def login():
                         
                             return redirect("/")
                         else:
-                            return "Clave incorrecta"
+                            return render_template(ruta_login,id=0)
         except Error:
             print(Error)
     return render_template(ruta_login,id=0)
@@ -475,7 +480,7 @@ def comprar(id=id):
                     row = cur.fetchone()
                     rol=row[0]
                     cur=con.cursor()
-                    cur.execute("update peliculas SET tiquetesTotales=tiquetesTotales-? where id_pelicula=?",(tiquetes,id))
+                    cur.execute("update peliculas SET tiquetesTotales=tiquetesTotales-?, tiquetesVendidos=? where id_pelicula=?",(tiquetes,tiquetes,id))
                     con.commit()
                     
                     cur=con.cursor()
@@ -584,6 +589,212 @@ def eliminarComentario(id_comentario=None,id_usuario=None):
         except Error:
             print(Error)
 
+@app.route("/editarUsuario/<string:id>")
+def editarUsuario(id=None):
+    try:
+        with sqlite3.connect(ruta_db) as con: 
+            con.row_factory = sqlite3.Row #Convierte la respuesta de la BD en un diccionario
+            cur = con.cursor()
+            cur.execute("SELECT * FROM usuarios WHERE id_usuario=?",[id])
+            row_usuario = cur.fetchone()
+            cur=con.cursor()
+            cur.execute("SELECT rol from usuarios WHERE correo=?",[session["usuario"]])
+            row=cur.fetchone()
+            rol=row[0]
+            return render_template(ruta_editarUsuario, row_usuario=row_usuario,id=row_usuario["id_usuario"],rol=rol)
+    except Error:
+            print(Error)
+
+@app.route("/editarUsuario2/<string:id>", methods=["GET", "POST"])
+def editarUsuario2(id=None):
+    if request.method=="POST":
+        try:
+            with sqlite3.connect(ruta_db) as con: 
+                nombre=escape(request.form["nombre"])
+                apellidos=escape(request.form["apellidos"])
+                documento=escape(request.form["cedula"])
+                correo=escape(request.form["correo"])
+                rol=escape(request.form["rol"])
+                print("Guardo datos")
+                cur=con.cursor()
+                cur.execute("UPDATE usuarios SET nombre=?, apellidos=?, documento=?, correo=?, rol=? where id_usuario=?",(nombre,apellidos,documento,correo,rol,id))
+                con.commit()
+                con.row_factory = sqlite3.Row #Convierte la respuesta de la BD en un diccionario
+                cur = con.cursor()
+                cur.execute("SELECT * FROM usuarios WHERE id_usuario=?",[id])
+                row_usuario = cur.fetchone()
+                cur=con.cursor()
+                cur.execute("SELECT rol from usuarios WHERE correo=?",[session["usuario"]])
+                row=cur.fetchone()
+                rol=row[0]
+                return render_template(ruta_editarUsuario, row_usuario=row_usuario,rol=rol)
+        except Error:
+                print(Error)
+    return "Error en el metodo"
+
+@app.route("/editarFuncion/<string:id>")
+def editarFuncion(id=None):
+    try:
+        with sqlite3.connect(ruta_db) as con: 
+            con.row_factory = sqlite3.Row #Convierte la respuesta de la BD en un diccionario
+            cur = con.cursor()
+            cur.execute("SELECT * FROM peliculas WHERE id_pelicula=?",[id])
+            row_pelicula = cur.fetchone()
+            cur=con.cursor()
+            cur.execute("SELECT rol from usuarios WHERE correo=?",[session["usuario"]])
+            row=cur.fetchone()
+            rol=row[0]
+            return render_template(ruta_editarFuncion, row_pelicula=row_pelicula,rol=rol)
+    except Error:
+            print(Error)
+
+@app.route("/editarFuncion2/<string:id>", methods=["GET", "POST"])
+def editarFuncion2(id=None):
+    if request.method=="POST":
+        try:
+            with sqlite3.connect(ruta_db) as con:
+                nombrePelicula=escape(request.form["titulo"])
+                genero=escape(request.form["genero"])
+                duracion=escape(request.form["duracion"])
+                year=escape(request.form["year"])
+                enCartelera=escape(request.form.get("activa"))
+                if (enCartelera!="True"):
+                    enCartelera="False"
+                tiquetesTotales=escape(request.form["tiquetes"])
+                tiquetesVendidos=escape(request.form["tiquetesVendidos"])
+
+                poster=request.files["poster"]
+                posterBinario= base64.b64encode(poster.read())
+                posterBinario2=posterBinario.decode("utf-8") 
+                cur=con.cursor()
+                cur.execute("UPDATE peliculas SET nombrePelicula=?, genero=?, duracion=?, year=?, enCartelera=?, tiquetesTotales=?, tiquetesVendidos=?, poster=? where id_pelicula=?",(nombrePelicula,genero,duracion,year,enCartelera,tiquetesTotales,tiquetesVendidos,posterBinario2,id))
+                con.commit()
+                con.row_factory = sqlite3.Row #Convierte la respuesta de la BD en un diccionario
+                cur = con.cursor()
+                cur.execute("SELECT * FROM peliculas WHERE id_pelicula=?",[id])
+                row_pelicula = cur.fetchone()
+                cur=con.cursor()
+                cur.execute("SELECT rol from usuarios WHERE correo=?",[session["usuario"]])
+                row=cur.fetchone()
+                rol=row[0]
+                return render_template(ruta_editarFuncion, row_pelicula=row_pelicula,rol=rol)
+        except Error:
+                print(Error)
+                return "Error al guardar en base de datos"
+    else:
+        return "Error en el metodo"
+
+@app.route("/eliminarUsuario/<string:id>", methods=["GET","POST"])
+def eliminarUsuario(id=None):
+    try:
+        with sqlite3.connect(ruta_db) as con:
+            cur = con.cursor()
+            cur.execute("DELETE FROM usuarios Where id_usuario = ?",[id])
+            cur=con.cursor()
+            cur.execute("SELECT rol FROM usuarios WHERE correo=?",[session["usuario"]])
+            row = cur.fetchone()
+            rol=row[0]
+            con.row_factory = sqlite3.Row #Convierte la respuesta de la BD en un diccionario
+            cur = con.cursor()
+            cur.execute("SELECT * FROM usuarios")
+            row_usuarios = cur.fetchall()  
+            cur=con.cursor()
+            cur.execute("SELECT id_usuario FROM usuarios WHERE correo=?",[session["usuario"]])
+            row=cur.fetchone()
+            id=row[0]
+            con.row_factory = sqlite3.Row #Convierte la respuesta de la BD en un diccionario
+            cur = con.cursor()
+            cur.execute("SELECT * FROM peliculas")
+            row_peliculas = cur.fetchall()  
+            return render_template(ruta_dashboard,rol=rol,row_usuarios=row_usuarios,id=id,row_peliculas=row_peliculas)
+    except Error:
+                print(Error)
+                return "Error al borrar en base de datos"
+
+@app.route("/eliminarFuncion/<string:id>", methods=["GET","POST"])
+def eliminarFuncion(id=None):
+    try:
+        with sqlite3.connect(ruta_db) as con:
+            cur = con.cursor()
+            cur.execute("DELETE FROM peliculas Where id_pelicula = ?",[id])
+            cur=con.cursor()
+            cur.execute("SELECT rol FROM usuarios WHERE correo=?",[session["usuario"]])
+            row = cur.fetchone()
+            rol=row[0]
+            con.row_factory = sqlite3.Row #Convierte la respuesta de la BD en un diccionario
+            cur = con.cursor()
+            cur.execute("SELECT * FROM usuarios")
+            row_usuarios = cur.fetchall()  
+            cur=con.cursor()
+            cur.execute("SELECT id_usuario FROM usuarios WHERE correo=?",[session["usuario"]])
+            row=cur.fetchone()
+            id=row[0]
+            con.row_factory = sqlite3.Row #Convierte la respuesta de la BD en un diccionario
+            cur = con.cursor()
+            cur.execute("SELECT * FROM peliculas")
+            row_peliculas = cur.fetchall()  
+            return render_template(ruta_dashboard,rol=rol,row_usuarios=row_usuarios,id=id,row_peliculas=row_peliculas)
+    except Error:
+                print(Error)
+                return "Error al borrar en base de datos"
+
+
+@app.route("/agregarPelicula")
+def agregarFuncion():
+    try:
+        with sqlite3.connect(ruta_db) as con:
+            cur=con.cursor()
+            cur.execute("SELECT rol FROM usuarios WHERE correo=?",[session["usuario"]])
+            row = cur.fetchone()
+            rol=row[0]
+            return render_template(ruta_agregarFuncion,rol=rol)
+    except Error:
+            print(Error)
+            
+    return render_template(ruta_agregarFuncion)
+
+@app.route("/agregarPelicula2",methods=["GET","POST"])
+def agregarFuncion2():
+    if request.method=="POST":
+        try:
+            with sqlite3.connect(ruta_db) as con:
+                nombrePelicula=escape(request.form["titulo"])
+                genero=escape(request.form["genero"])
+                duracion=escape(request.form["duracion"])
+                year=escape(request.form["year"])
+                enCartelera=escape(request.form.get("activa"))
+                if (enCartelera!="True"):
+                    enCartelera="False"
+                tiquetesTotales=escape(request.form["tiquetes"])
+                tiquetesVendidos=escape(request.form["tiquetesVendidos"])
+
+                poster=request.files["poster"]
+                posterBinario= base64.b64encode(poster.read())
+                posterBinario2=posterBinario.decode("utf-8") 
+                cur=con.cursor()
+                cur.execute("INSERT INTO peliculas (nombrePelicula,genero,duracion,year,enCartelera,tiquetesTotales,tiquetesVendidos,poster) VALUES (?,?,?,?,?,?,?,?)",(nombrePelicula,genero,duracion,year,enCartelera,tiquetesTotales,tiquetesVendidos,posterBinario2))
+                con.commit()
+                
+                cur=con.cursor()
+                cur.execute("SELECT rol FROM usuarios WHERE correo=?",[session["usuario"]])
+                row = cur.fetchone()
+                rol=row[0]
+                con.row_factory = sqlite3.Row #Convierte la respuesta de la BD en un diccionario
+                cur = con.cursor()
+                cur.execute("SELECT * FROM usuarios")
+                row_usuarios = cur.fetchall()  
+                cur=con.cursor()
+                cur.execute("SELECT id_usuario FROM usuarios WHERE correo=?",[session["usuario"]])
+                row=cur.fetchone()
+                id=row[0]
+                con.row_factory = sqlite3.Row #Convierte la respuesta de la BD en un diccionario
+                cur = con.cursor()
+                cur.execute("SELECT * FROM peliculas")
+                row_peliculas = cur.fetchall()  
+                return render_template(ruta_dashboard,rol=rol,row_usuarios=row_usuarios,id=id,row_peliculas=row_peliculas)
+        except Error:
+                    print(Error)
+                    return "Error al borrar en base de datos"
 
 
 if __name__=="__main__":

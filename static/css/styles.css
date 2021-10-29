@@ -5,7 +5,9 @@ form {
 .group-cartelera {
   padding: 10px;
 }
-
+.form-input-center {
+  text-align: center;
+}
 .card {
   margin: 10px;
 }

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Cinema</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/ionicons.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Login-Form-Dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Navigation-with-Button.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    
+    <script type="text/javascript">
+        function editarFuncionUno() {
+            document.getElementById("formulario").action="/editarFuncion2/{{row_pelicula.id_pelicula}}";
+        }
+    </script>
+    
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+        <div class="container"><a class="navbar-brand" href="index.html"><strong>GPB - Cinemark</strong><br></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse text-truncate" id="navcol-1">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link nav-link" href="/">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/cartelera">Cartelera</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/buscar">Buscar</a></li>
+                {% if rol == "administrador" or rol=="superadministrador" %}
+                    <li class="nav-item"><a class="nav-link" href="/perfil/{{id}}">Perfil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/dashboard">Administrar</a></li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" href="/perfil/{{id}}">Perfil</a></li>
+                {% endif %}
+            {% if rol ==0 %}
+                </ul><span class="navbar-text actions"> <a class="login" href="/login">Iniciar Sesión</a><a class="btn btn-light action-button" role="button" href="/registro">Registrarse</a></span>               
+            {% else %}
+                </ul><span class="navbar-text actions"> <a class="login" href="/logout">Cerrar Sesion</a></span> 
+            {% endif %}
+            </div>
+        </div>
+    </nav>
+    <div class="container" style="background-color: var(--bs-gray-200);padding: 20px;">
+        <form action="editarYeliminar" id="formulario" method="POST" enctype="multipart/form-data">
+            <h1>Editar Función</h1>
+            <div><label class="form-label" for="titulo">Título<input class="form-control form-input-center" type="text" name="titulo" value="{{row_pelicula.nombrePelicula}}"></label></div>
+            <div><label class="form-label" for="apellidos">Género<input class="form-control form-input-center" type="text" name="genero" value="{{row_pelicula.genero}}"></label></div>
+            <div><label class="form-label" for="duracion">Duración<input class="form-control form-input-center" type="text" name="duracion" value="{{row_pelicula.duracion}}"></label></div>
+            <div><label class="form-label" for="year">Año<input class="form-control form-input-center" type="text" name="year" value="{{row_pelicula.year}}" inputmode="numeric"></label></div>
+            {% if row_pelicula.enCartelera == "True" %}
+            <div><label class="form-label" for="activa">¿En cartelera?<input type="checkbox" style="margin-left: 20px;" name="activa" value="True" checked></label></div>
+            {% else %}
+            <div><label class="form-label" for="activa">¿En cartelera?<input type="checkbox" style="margin-left: 20px;" name="activa" value="True"></label></div>
+            {% endif %}
+            <div><label class="form-label" for="tiquetes">Capacidad<input class="form-control form-input-center" type="text" name="tiquetes" value="{{row_pelicula.tiquetesTotales}}" inputmode="numeric"></label></div>
+            <div><label class="form-label" for="tiquetesVendidos">Tiquetes Vendidos<input class="form-control form-input-center" type="text" name="tiquetesVendidos" value="{{row_pelicula.tiquetesVendidos}}" inputmode="numeric"></label></div>
+            <div><label class="form-label" for="Tipo">Poster<img style="min-width: 200px;min-height: 200px;margin-top: 2px;margin-bottom: 5px;margin-left: 20px;" src="data:image/png;base64,{{ row_pelicula.poster }}"><input class="form-control form-control-sm" type="file" name="poster"></label></div>
+            <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;margin-top: 15px;"><button class="btn btn-success" type="submit" style="padding: 0px 0px;margin-left: 0px;" onmouseover="editarFuncionUno()">Editar</button><button class="btn btn-success" type="button" style="padding: 0px 0px;margin-left: 0px;">Añadir</button></div>
+        </form>
+    </div>
+    <footer class="text-center text-primary footer-basic" title="asdasd">
+        <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="index.html">Home</a></li>
+            <li class="list-inline-item"><a href="#">Services</a></li>
+            <li class="list-inline-item"><a href="#">About</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+        </ul>
+        <p class="copyright">Mintic Grupo 6-26&nbsp;© 2021</p>
+    </footer>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/Simple-Slider.js') }}"></script>
+</body>
+
+</html>
