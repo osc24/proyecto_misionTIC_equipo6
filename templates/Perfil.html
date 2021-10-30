@@ -5,13 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Cinema</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap">
-    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/ionicons.min.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/Login-Form-Dark.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/Navigation-with-Button.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/ionicons.min.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.css">
 </head>
 
 <body>
@@ -28,7 +26,10 @@
                     {% else %}
                         <li class="nav-item"><a class="nav-link active nav-link" href="/perfil">Perfil</a></li>
                     {% endif %}
-                </ul><span class="navbar-text actions"> <a class="login" href="/logout">Cerrar Sesion</a></span>
+                </ul>
+                <span class="navbar-text actions">
+                    <a class="btn btn-light action-button logout" href="/logout">Cerrar Sesion</a>
+                </span>
             </div>
         </div>
     </nav>
@@ -66,6 +67,7 @@
                         <table class="table">
                             <thead>
                                 <tr>
+                                    <th>Usuario</th>
                                     <th>Película</th>
                                     <th>calificación</th>
                                     <th>comentario</th>
@@ -76,6 +78,7 @@
                                 {% for r in row_comentarios %}
                                 <tr>
                                     <td>{{r.usuario}}</td>
+                                    <td>{{r.nombrePelicula}}</td>
                                     <td>{{r.puntaje}}</td>
                                     <td>{{r.comentario}}</td>
                                     <td>

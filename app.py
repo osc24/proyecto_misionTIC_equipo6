@@ -3,7 +3,7 @@ from sqlite3.dbapi2 import Cursor
 from flask import Flask, render_template, request, flash,session,redirect
 import os
 from flask import *
-from flask.scaffold import _matching_loader_thinks_module_is_package
+#from flask.scaffold import _matching_loader_thinks_module_is_package
 import sqlite3
 from sqlite3 import Error
 import base64

@@ -2,27 +2,30 @@ form {
   text-align: center;
 }
 
-.group-cartelera {
-  padding: 10px;
-}
 .form-input-center {
   text-align: center;
-}
-.card {
-  margin: 10px;
-}
-
-.peli-card {
-  min-width: 100px;
-}
-
-.peli-card {
-  min-width: 120px;
 }
 
 .div-form {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.logout {
+  color:white;
+  background-color: crimson !important;
+}
+
+.group-cartelera {
+  padding: 10px;
+}
+
+.card {
+  margin: 10px;
+}
+
+.peli-card {
+  min-width: 120px;
 }
 
 .footer-basic {
@@ -84,8 +87,3 @@ form {
   color: #aaa;
   margin-bottom: 0;
 }
-
-.form-input-center {
-  text-align: center;
-}
-

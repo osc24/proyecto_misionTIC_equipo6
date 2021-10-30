@@ -29,7 +29,11 @@
                         <li class="nav-item"><a class="nav-link" href="/perfil/{{id}}">Perfil</a></li>
                     {% endif %}
             {% if rol ==0 %}
-                </ul><span class="navbar-text actions"> <a class="login" href="/login">Iniciar Sesión</a><a class="btn btn-light action-button" role="button" href="/registro">Registrarse</a></span>               
+                </ul>
+                <span class="navbar-text actions"> 
+                    <a class="login" href="/login">Iniciar Sesión</a>
+                    <a class="btn btn-light action-button" role="button" href="/registro">Registrarse</a>
+                </span>               
             {% else %}
                 </ul><span class="navbar-text actions"> <a class="login" href="/logout">Cerrar Sesion</a></span> 
             {% endif %}
