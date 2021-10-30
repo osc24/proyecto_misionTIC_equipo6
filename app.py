@@ -1,4 +1,3 @@
-import os
 import sqlite3
 import base64
 import hashlib
@@ -29,7 +28,7 @@ ruta_agregarFuncion="Agregar-Funcion.html"
 
 #crear el item de app
 app=Flask(__name__)
-app.secret_key=os.urandom(24)
+app.secret_key=b'\xfcy\x9c\xea\xd8k\x80\xc4RW\xed\xd0\xc2w\xaaN\xddr\xc7|\x9c\xc5\xf1j' #antes os.urandom(24)
 
 def roleID():
     try:
