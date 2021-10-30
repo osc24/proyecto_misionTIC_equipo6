@@ -31,17 +31,20 @@
                 {% if rol ==0 %}
                     </ul><span class="navbar-text actions"> <a class="login" href="/login">Iniciar Sesión</a><a class="btn btn-light action-button" role="button" href="/registro">Registrarse</a></span>               
                 {% else %}
-                    </ul><span class="navbar-text actions"> <a class="login" href="/logout">Cerrar Sesion</a></span> 
+                    </ul><span class="navbar-text actions">
+                        <a class="btn btn-light action-button logout" href="/logout">Cerrar Sesion</a>
+                    </span> 
                 {% endif %}
             </div>
         </div>
     </nav>
     <h1 class="display-5 text-center">Cartelera</h1>
-    <div class="container-fluid" style="align-content: center;align-items: center;text-align: center;"><a class="btn btn-primary" role="button" href="/buscar">Buscar</a>
+    <div class="container-fluid" style="align-content: center;align-items: center;text-align: center;">
+        <a class="btn btn-primary" style="background-color: var(--bs-indigo); width: 10vw; min-width: 200px;" role="button" href="/buscar">Buscar</a>
         <div class="card-group text-center group-cartelera">
         {% for r in row_pelicula %}
         {% if r["enCartelera"]=="True" %}
-            <div class="card peli-card"><img class="card-img-top w-100 d-block" style="height: 300px;width: 70px;" src="data:image/png;base64,{{ r['poster'] }}">
+            <div class="card peli-card"><img class="card-img-top w-100 d-block" src="data:image/png;base64,{{ r['poster'] }}">
                 <div class="card-body">
                     <h4 class="card-title">{{ r["nombrePelicula"] }}</h4>
                     <div class="table-responsive">

@@ -16,14 +16,29 @@
 
 <body>
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
-        <div class="container"><a class="navbar-brand" href="index.html"><strong>GPB - Cinemark</strong><br></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand" href="/"><strong>GPB - Cinemark</strong><br></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse text-truncate" id="navcol-1">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link nav-link" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Cartelera.html">Cartelera</a></li>
-                    <li class="nav-item"><a class="nav-link" href="Buscar.html">Buscar</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/perfil">Administrar</a></li>
-                </ul><span class="navbar-text actions"> <a class="login" href="Iniciar-Sesión.html">Iniciar Sesión</a><a class="btn btn-light action-button" role="button" href="Registro.html">Registrarse</a></span>
+                    <li class="nav-item"><a class="nav-link nav-link" href="/">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/cartelera">Cartelera</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/buscar">Buscar</a></li>
+                    {% if rol == "administrador" or rol=="superadministrador" %}
+                        <li class="nav-item"><a class="nav-link" href="/perfil/{{id}}">Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/dashboard">Administrar</a></li>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link" href="/perfil/{{id}}">Perfil</a></li>
+                    {% endif %}
+            {% if rol ==0 %}
+                </ul>
+                <span class="navbar-text actions"> 
+                    <a class="login" href="/login">Iniciar Sesión</a>
+                    <a class="btn btn-light action-button" role="button" href="/registro">Registrarse</a>
+                </span>               
+            {% else %}
+                </ul><span class="navbar-text actions">
+                    <a class="btn btn-light action-button logout" href="/logout">Cerrar Sesion</a>
+                </span> 
+            {% endif %}
             </div>
         </div>
     </nav>

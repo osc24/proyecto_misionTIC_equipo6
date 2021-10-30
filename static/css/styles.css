@@ -12,8 +12,9 @@ form {
 }
 
 .logout {
-  color:white;
+  color:white !important;
   background-color: crimson !important;
+  border-radius: 20px !important;
 }
 
 .group-cartelera {

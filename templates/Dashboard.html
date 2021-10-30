@@ -31,7 +31,9 @@
                 {% if rol ==0 %}
                     </ul><span class="navbar-text actions"> <a class="login" href="/login">Iniciar Sesión</a><a class="btn btn-light action-button" role="button" href="/registro">Registrarse</a></span>               
                 {% else %}
-                    </ul><span class="navbar-text actions"> <a class="login" href="/logout">Cerrar Sesion</a></span> 
+                    </ul><span class="navbar-text actions">
+                        <a class="btn btn-light action-button logout" href="/logout">Cerrar Sesion</a>
+                    </span>
                 {% endif %}
             </div>
         </div>
@@ -76,7 +78,8 @@
                                 {% endfor %} 
                             </tbody>
                         </table>
-                    </div><a class="btn btn-primary" role="button" href="Buscar.html">Agregar</a>
+                    </div>
+                    <!--<a class="btn btn-primary" role="button" href="Buscar.html">Agregar</a> -->
                 </div>
                 <div class="tab-pane active" role="tabpanel" id="tab-2">
                     <div class="table-responsive">
@@ -85,13 +88,12 @@
                                 <tr>
                                     <th>Título</th>
                                     <th>Duracion</th>
-                                    <th>GÉNERO</th>
-                                    <th>año</th>
-                                    <th>activa</th>
-                                    <th>TIQUETES</th>
-                                    <th>vendidos</th>
-                                    <th>Poster</th>
-                                    <th>opciones</th>
+                                    <th>Génro</th>
+                                    <th>Año</th>
+                                    <th>Activa</th>
+                                    <th>Tiquetes</th>
+                                    <th>Vendidos</th>
+                                    <th>Opciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -107,8 +109,11 @@
                                     <td><input type="checkbox"></td>
                                     {% endif %}
                                     <td>{{r.tiquetesTotales}}</td>
+                                    {% if r.tiquetesVendidos=="None" or r.tiquetesVendidos==None %}
+                                    <td>0</td>
+                                    {% else %}
                                     <td>{{r.tiquetesVendidos}}</td>
-                                    <td><input type="file" style="width: 200px;" accept="image/*"></td>
+                                    {% endif %}
                                     <td>
                                         <div class="btn-group" role="group" style="margin: auto;height: auto;padding-right: 0px;width: auto;min-width: 170px;"><button class="btn btn-primary" type="button" style="padding-top: 0;padding-right: 0;padding-bottom: 0;padding-left: 0;margin-right: 5px;" onclick="window.location.href='/editarFuncion/{{r.id_pelicula}}'">Editar</button><button class="btn btn-danger" type="button" style="padding: 0px 0px;margin-left: 0px;" onclick="window.location.href='/eliminarFuncion/{{r.id_pelicula}}'">Eliminar</button></div>
                                     </td>
