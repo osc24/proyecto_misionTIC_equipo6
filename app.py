@@ -2,7 +2,9 @@ import os
 import sqlite3
 import base64
 import hashlib
+from flask import *
 from flask import Flask, render_template,redirect, flash, request, session
+from flask.scaffold import _matching_loader_thinks_module_is_package
 from markupsafe import escape 
 from logging import debug, error
 from sqlite3 import Error
