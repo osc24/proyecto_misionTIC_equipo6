@@ -1,6 +1,6 @@
 .login-dark {
   height: 1000px;
-  background: #000000 url("../../assets/img/cinema-bg.jpg");
+  background: #000000 url("/static/img/cinema-bg.jpg");
   background-size: cover;
   position: relative;
 }

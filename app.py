@@ -1,16 +1,17 @@
+import os
+import sqlite3
+import base64
+from flask import Flask, render_template, request, flash,session,redirect
+from markupsafe import escape 
 from logging import debug, error
 from sqlite3.dbapi2 import Cursor
-from flask import Flask, render_template, request, flash,session,redirect
-import os
-from flask import *
-#from flask.scaffold import _matching_loader_thinks_module_is_package
-import sqlite3
 from sqlite3 import Error
-import base64
-from markupsafe import escape 
-import hashlib
 from werkzeug.exceptions import UnsupportedMediaType
 from werkzeug.security import generate_password_hash, check_password_hash
+
+#from flask import *
+#from flask.scaffold import _matching_loader_thinks_module_is_package
+#import hashlib
 
 ##RUTAS##
 ruta_inicio="index.html"
@@ -437,7 +438,7 @@ def perfil(id=id):
                 return render_template(ruta_perfil,row_usuario=row_perfil,rol=rol,row_comentarios=row_comentarios)
         except Error:
             print(Error)
-    return "Debe iniciar sesion"
+    return redirect("/login")
 
 @app.route("/dashboard")
 def dashboard():
@@ -465,7 +466,7 @@ def dashboard():
                 return render_template(ruta_dashboard,rol=rol,row_usuarios=row_usuarios,id=id,row_peliculas=row_peliculas)
         except Error:
             print(Error)
-    return "Debe iniciar sesion"
+    return redirect("/login")
 
 
 @app.route("/comprar/<string:id>",methods=["GET","POST"])
